@@ -9017,5 +9017,20 @@
       "ja": "トゥルーグリフィングリモア"
     },
     "stars": 2
+  },
+  {
+    "baseLevel": 70,
+    "difficulty": 6377,
+    "durability": 70,
+    "level": 320,
+    "maxQuality": 28506,
+    "name": {
+      "cn": "boss",
+      "de": "boss",
+      "en": "boss",
+      "fr": "boss",
+      "ja": "boss"
+    },
+    "stars": 2
   }
 ]
