@@ -73,59 +73,69 @@ Synth.prototype.calculateBaseProgressIncrease = function (levelDifference, craft
     var baseProgress = 0;
     var levelCorrectionFactor = 0;
     var levelCorrectedProgress = 0;
+    var recipeLevelPenalty = 0;
 
-    if (crafterLevel >= 260) {
+    if (crafterLevel > 110) {
         baseProgress = 1.834712812e-5 * craftsmanship * craftsmanship + 1.904074773e-1 * craftsmanship + 1.544103837;
     }
-    else if (crafterLevel >= 120) {
-        baseProgress = 2.09860e-5 * craftsmanship * craftsmanship + 0.196184 * craftsmanship + 2.68452;
-    }
-    else if (crafterLevel < 120) {
+    else {
         baseProgress = 0.214959 * craftsmanship + 1.6;
     }
 
     // Level boost for recipes below crafter level
     if (levelDifference > 0) {
-        levelCorrectionFactor += 0.05 * Math.min(levelDifference, 5);
+        levelCorrectionFactor += (0.25 / 5) * Math.min(levelDifference, 5);
     }
     if (levelDifference > 5) {
-        levelCorrectionFactor += 0.02 * Math.min(levelDifference - 5, 10);
+        levelCorrectionFactor += (0.10 / 5) * Math.min(levelDifference - 5, 10);
     }
     if (levelDifference > 15) {
-        levelCorrectionFactor += 0.01 * Math.min(levelDifference - 15, 5);
+        levelCorrectionFactor += (0.05 / 5) * Math.min(levelDifference - 15, 5);
     }
     if (levelDifference > 20) {
         levelCorrectionFactor += 0.0006 * (levelDifference - 20);
     }
 
     // Level penalty for recipes above crafter level
-    // Seems to be capped at -10
     if (levelDifference < 0) {
         levelCorrectionFactor += 0.025 * Math.max(levelDifference, -10);
+        if (ProgressPenaltyTable[recipeLevel]) {
+            recipeLevelPenalty += ProgressPenaltyTable[recipeLevel];
+        }
     }
 
-    levelCorrectedProgress = (1 + levelCorrectionFactor) * baseProgress;
+    // Level factor is rounded to nearest percent
+    levelCorrectionFactor = Math.floor(levelCorrectionFactor * 100) / 100;
+
+    levelCorrectedProgress = baseProgress * (1 + levelCorrectionFactor) * (1 + recipeLevelPenalty);
 
     return levelCorrectedProgress;
 };
 
 Synth.prototype.calculateBaseQualityIncrease = function (levelDifference, control, crafterLevel, recipeLevel) {
     var baseQuality = 0;
-    var recipeLevelFactor = 0;
+    var recipeLevelPenalty = 0;
     var levelCorrectionFactor = 0;
     var levelCorrectedQuality = 0;
-    if (recipeLevel >= 255) {
-        baseQuality = 3.38411e-05 * control * control + 0.340191324 * control + 33.85116443;
 
-        recipeLevelFactor = -0.0002122 * recipeLevel;
-    }
-    else if (recipeLevel >= 115) {
-        baseQuality = 3.3506479e-5 * control * control + 0.339276958 * control + 32.97846477;
+    baseQuality = 3.46e-5 * control * control + 0.3514 * control + 34.66;
 
-        recipeLevelFactor = 3.4e-4 * (115 - recipeLevel);
+    if (recipeLevel > 50) {
+        // Starts at base penalty amount depending on recipe tier
+        var recipeLevelPenaltyLevel = 0;
+        for (var penaltyLevel in QualityPenaltyTable) {
+            penaltyLevel = parseInt(penaltyLevel);
+            var penaltyValue = QualityPenaltyTable[penaltyLevel];
+            if (recipeLevel >= penaltyLevel && penaltyLevel >= recipeLevelPenaltyLevel) {
+                recipeLevelPenalty = penaltyValue;
+                recipeLevelPenaltyLevel = penaltyLevel;
+            }
+        }
+        // Smaller penalty applied for additional recipe levels within the tier
+        recipeLevelPenalty += (recipeLevel - recipeLevelPenaltyLevel) * -0.0002;
     }
     else {
-        baseQuality = 3.46e-5 * control * control + 0.3514 * control + 34.66;
+        recipeLevelPenalty += recipeLevel * -0.00015 + 0.005;
     }
 
     // Level penalty for recipes above crafter level
@@ -133,7 +143,7 @@ Synth.prototype.calculateBaseQualityIncrease = function (levelDifference, contro
         levelCorrectionFactor = 0.05 * Math.max(levelDifference, -10);
     }
 
-    levelCorrectedQuality = baseQuality * (1 + levelCorrectionFactor) * (1 + recipeLevelFactor);
+    levelCorrectedQuality = baseQuality * (1 + levelCorrectionFactor) * (1 + recipeLevelPenalty);
 
     return levelCorrectedQuality;
 };
@@ -238,11 +248,51 @@ function NewStateFromSynth(synth) {
     return new State(synth, step, lastStep, '', durabilityState, cpState, bonusMaxCp, qualityState, progressState, wastedActions, trickUses, nameOfElementUses, reliability, crossClassActionList, effects, condition);
 }
 
+function probGoodForSynth(synth) {
+    var recipeLevel = synth.recipe.level;
+    var qualityAssurance = synth.crafter.level >= 63;
+    if (recipeLevel >= 300) { // 70*+
+        return qualityAssurance ? 0.11 : 0.10;
+    }
+    else if (recipeLevel >= 276) { // 65+
+        return qualityAssurance ? 0.17 : 0.15;
+    }
+    else if (recipeLevel >= 255) { // 61+
+        return qualityAssurance ? 0.22 : 0.20;
+    }
+    else if (recipeLevel >= 150) { // 60+
+        return qualityAssurance ? 0.11 : 0.10;
+    }
+    else if (recipeLevel >= 136) { // 55+
+        return qualityAssurance ? 0.17 : 0.15;
+    }
+    else {
+        return qualityAssurance ? 0.27 : 0.25;
+    }
+}
+
+function probExcellentForSynth(synth) {
+    var recipeLevel = synth.recipe.level;
+    if (recipeLevel >= 300) { // 70*+
+        return 0.01;
+    }
+    else if (recipeLevel >= 255) { // 61+
+        return 0.02;
+    }
+    else if (recipeLevel >= 150) { // 60+
+        return 0.01;
+    }
+    else {
+        return 0.02;
+    }
+}
+
 function calcNameOfMultiplier(s) {
     /* From http://redd.it/3ejmp2 and http://redd.it/3d3meb
      Assume for now that the function is linear, but capped with a minimum of 110%
      */
-    var nameOfMultiplier = -2 * (s.progressState / s.synth.recipe.difficulty) + 3;
+    var percentComplete = Math.floor(s.progressState / s.synth.recipe.difficulty * 100) / 100;
+    var nameOfMultiplier = -2 * percentComplete + 3;
     nameOfMultiplier = Math.max(nameOfMultiplier, 1.1);
 
     return nameOfMultiplier;
@@ -295,7 +345,7 @@ function ApplyModifiers(s, action, condition) {
         }
 
         if (levelDifference < 0) {
-            levelDifference = Math.max(levelDifference, -5);
+            levelDifference = Math.max(levelDifference, -6);
         }
     }
 
@@ -348,11 +398,11 @@ function ApplyModifiers(s, action, condition) {
     }
 
     // Effects modified by Whistle While You Work
-    if (AllActions.whistle.shortName in s.effects.countDowns && (s.effects.countDowns[AllActions.whistle.shortName] % 3 == 0)) {
-        if (progressIncreaseMultiplier > 0) {
-            progressIncreaseMultiplier += 0.5;
-        }
-    }
+    // if (AllActions.whistle.shortName in s.effects.countDowns && (s.effects.countDowns[AllActions.whistle.shortName] % 3 == 0)) {
+    //     if (progressIncreaseMultiplier > 0) {
+    //         progressIncreaseMultiplier += 0.5;
+    //     }
+    // }
 
     // Effects modifying quality increase multiplier
     var qualityIncreaseMultiplier = action.qualityIncreaseMultiplier;
@@ -402,9 +452,9 @@ function ApplyModifiers(s, action, condition) {
         }
     }
 
-    if (isActionEq(action, AllActions.trainedHand) && !condition.checkInnerQuietEqWhistle()) {
-        bProgressGain = 0;
-    }
+    // if (isActionEq(action, AllActions.trainedHand) && !condition.checkInnerQuietEqWhistle()) {
+    //     bProgressGain = 0;
+    // }
 
     // Effects modifying quality
     var bQualityGain = qualityIncreaseMultiplier * s.synth.calculateBaseQualityIncrease(levelDifference, control, effCrafterLevel, s.synth.recipe.level);
@@ -417,9 +467,9 @@ function ApplyModifiers(s, action, condition) {
             bQualityGain = 0;
         }
     }
-    if (isActionEq(action, AllActions.trainedHand) && !condition.checkInnerQuietEqWhistle()) {
-        bQualityGain = 0;
-    }
+    // if (isActionEq(action, AllActions.trainedHand) && !condition.checkInnerQuietEqWhistle()) {
+    //     bQualityGain = 0;
+    // }
 
     // Effects modifying durability cost
     var durabilityCost = action.durabilityCost;
@@ -447,22 +497,22 @@ function ApplyModifiers(s, action, condition) {
     If Whistle is at 1 and a good/excellent occurs, at the end of the action, whistle will decrement and Finishing Touches will occur
     Finishing Touches is 200% efficiency, 50% success (?) and 10 (?) durability
     */
-    if ((AllActions.whistle.shortName in s.effects.countDowns && s.effects.countDowns[AllActions.whistle.shortName] == 1) && condition.checkGoodOrExcellent()) {
-        // Cheat to see if we are dealing with MontecarloStep
-        if (condition.pGoodOrExcellent() == 1) {
-            // Success or Failure
-            var successRand = Math.random();
-            if (0 <= successRand && successRand <= ftSuccessProbability) {
-                ftSuccessProbability = 1;
-            }
-            else {
-                ftSuccessProbability = 0;
-            }
-        }
-        bProgressGain += AllActions.finishingTouches.progressIncreaseMultiplier * condition.pGoodOrExcellent() * ftSuccessProbability * ftMultiplier *
-            s.synth.calculateBaseProgressIncrease(levelDifference, craftsmanship, effCrafterLevel, s.synth.recipe.level);
-        durabilityCost += ftDurabilityCost * condition.pGoodOrExcellent();
-    }
+    // if ((AllActions.whistle.shortName in s.effects.countDowns && s.effects.countDowns[AllActions.whistle.shortName] == 1) && condition.checkGoodOrExcellent()) {
+    //     // Cheat to see if we are dealing with MontecarloStep
+    //     if (condition.pGoodOrExcellent() == 1) {
+    //         // Success or Failure
+    //         var successRand = Math.random();
+    //         if (0 <= successRand && successRand <= ftSuccessProbability) {
+    //             ftSuccessProbability = 1;
+    //         }
+    //         else {
+    //             ftSuccessProbability = 0;
+    //         }
+    //     }
+    //     bProgressGain += AllActions.finishingTouches.progressIncreaseMultiplier * condition.pGoodOrExcellent() * ftSuccessProbability * ftMultiplier *
+    //         s.synth.calculateBaseProgressIncrease(levelDifference, craftsmanship, effCrafterLevel, s.synth.recipe.level);
+    //     durabilityCost += ftDurabilityCost * condition.pGoodOrExcellent();
+    // }
 
     return {
         craftsmanship: craftsmanship,
@@ -521,15 +571,15 @@ function ApplySpecialActionEffects(s, action, condition) {
         }
     }
 
-    if (isActionEq(action, AllActions.nymeiasWheel)) {
-        if (AllActions.whistle.shortName in s.effects.countDowns) {
-            s.durabilityState += NymeaisWheelTable[s.effects.countDowns[AllActions.whistle.shortName]];
-            delete s.effects.countDowns[AllActions.whistle.shortName];
-        }
-        else {
-            s.wastedActions += 1;
-        }
-    }
+    // if (isActionEq(action, AllActions.nymeiasWheel)) {
+    //     if (AllActions.whistle.shortName in s.effects.countDowns) {
+    //         s.durabilityState += NymeaisWheelTable[s.effects.countDowns[AllActions.whistle.shortName]];
+    //         delete s.effects.countDowns[AllActions.whistle.shortName];
+    //     }
+    //     else {
+    //         s.wastedActions += 1;
+    //     }
+    // }
 
     if (isActionNe(action, AllActions.comfortZone) && AllActions.comfortZone.shortName in s.effects.countDowns && s.cpState >= 0) {
         s.cpState += 8;
@@ -598,14 +648,14 @@ function ApplySpecialActionEffects(s, action, condition) {
     }
 
     // Effects modified by Whistle While You Work
-    if (isActionEq(action, AllActions.satisfaction) && s.cpState > 0) {
-        if (condition.checkWhistleThrees()) {
-            s.cpState += 15;
-        }
-        else {
-            s.wastedActions += 1;
-        }
-    }
+    // if (isActionEq(action, AllActions.satisfaction) && s.cpState > 0) {
+    //     if (condition.checkWhistleThrees()) {
+    //         s.cpState += 15;
+    //     }
+    //     else {
+    //         s.wastedActions += 1;
+    //     }
+    // }
 
     if (s.step == 1 && s.synth.crafter.specialist && s.synth.crafter.level >= 70 && s.cpState > 0) {
         s.effects.indefinites[AllActions.strokeOfGenius.shortName] = true;
@@ -620,14 +670,15 @@ function UpdateEffectCounters(s, action, condition, successProbability) {
     //===============================
     // Decrement countdowns
     for (var countDown in s.effects.countDowns) {
-        if (countDown == AllActions.whistle.shortName) {
-            if (condition.checkGoodOrExcellent()) {
-                s.effects.countDowns[AllActions.whistle.shortName] -= 1 * condition.pGoodOrExcellent();
-            }
-        }
-        else {
-            s.effects.countDowns[countDown] -= 1;
-        }
+        // if (countDown == AllActions.whistle.shortName) {
+        //     if (condition.checkGoodOrExcellent()) {
+        //         s.effects.countDowns[AllActions.whistle.shortName] -= 1 * condition.pGoodOrExcellent();
+        //     }
+        // }
+        // else {
+        //     s.effects.countDowns[countDown] -= 1;
+        // }
+        s.effects.countDowns[countDown] -= 1;
 
         if (s.effects.countDowns[countDown] === 0) {
             delete s.effects.countDowns[countDown];
@@ -648,9 +699,9 @@ function UpdateEffectCounters(s, action, condition, successProbability) {
         else if (isActionEq(action, AllActions.byregotsMiracle)) {
             // Do nothing in the event that the conditions fo Byregot's Miracle are not met
         }
-        else if (isActionEq(action, AllActions.trainedHand) && condition.checkInnerQuietEqWhistle()) {
-            s.effects.countUps[AllActions.innerQuiet.shortName] += 1 * successProbability;
-        }
+        // else if (isActionEq(action, AllActions.trainedHand) && condition.checkInnerQuietEqWhistle()) {
+        //     s.effects.countUps[AllActions.innerQuiet.shortName] += 1 * successProbability;
+        // }
         // Increment all other inner quiet count ups
         else if (action.qualityIncreaseMultiplier > 0) {
             s.effects.countUps[AllActions.innerQuiet.shortName] += 1 * successProbability;
@@ -667,7 +718,7 @@ function UpdateEffectCounters(s, action, condition, successProbability) {
 
     if (action.type === 'indefinite') {
         if (isActionEq(action, AllActions.initialPreparations)) {
-            if (s.step == 1 ) {
+            if (s.step == 1) {
                 s.effects.indefinites[action.shortName] = true;
             }
             else {
@@ -685,6 +736,9 @@ function UpdateEffectCounters(s, action, condition, successProbability) {
                 s.effects.countDowns[action.shortName] = action.activeTurns;
                 s.nameOfElementUses += 1;
             }
+            else {
+                s.wastedActions += 1;
+            }
         }
         else if (isActionEq(action, AllActions.manipulation) || isActionEq(action, AllActions.manipulation2)) {
             if (AllActions.manipulation.shortName in s.effects.countDowns) {
@@ -692,6 +746,15 @@ function UpdateEffectCounters(s, action, condition, successProbability) {
             }
             if (AllActions.manipulation2.shortName in s.effects.countDowns) {
                 delete s.effects.countDowns[AllActions.manipulation2.shortName];
+            }
+            s.effects.countDowns[action.shortName] = action.activeTurns;
+        }
+        else if (isActionEq(action, AllActions.ingenuity) || isActionEq(action, AllActions.ingenuity2)) {
+            if (AllActions.ingenuity.shortName in s.effects.countDowns) {
+                delete s.effects.countDowns[AllActions.ingenuity.shortName];
+            }
+            if (AllActions.ingenuity2.shortName in s.effects.countDowns) {
+                delete s.effects.countDowns[AllActions.ingenuity2.shortName];
             }
             s.effects.countDowns[action.shortName] = action.activeTurns;
         }
@@ -749,8 +812,8 @@ function simSynth(individual, startState, assumeSuccess, verbose, debug, logOutp
     var s = startState.clone();
 
     // Conditions
-    var pGood = 0.23;
-    var pExcellent = 0.01;
+    var pGood = probGoodForSynth(s.synth);
+    var pExcellent = probExcellentForSynth(s.synth);
     var ignoreConditionReq = !s.synth.useConditions;
 
     // Step 1 is always normal
@@ -771,30 +834,30 @@ function simSynth(individual, startState, assumeSuccess, verbose, debug, logOutp
                 return ppGood + ppExcellent;
             }
         },
-        checkInnerQuietEqWhistle: function () {
-            if (ignoreConditionReq) {
-                return true;
-            }
-            else if (s.effects.countUps[AllActions.innerQuiet.shortName] + 1 == s.effects.countDowns[AllActions.whistle.shortName]) {
-                // Until we figure out how to model this
-                return true;
-            }
-            else {
-                return false;
-            }
-        },
-        checkWhistleThrees: function () {
-            if (ignoreConditionReq) {
-                return true;
-            }
-            else if (AllActions.whistle.shortName in s.effects.countDowns && (s.effects.countDowns[AllActions.whistle.shortName] % 3 == 0)) {
-                // Until we figure out how to model this
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
+        // checkInnerQuietEqWhistle: function () {
+        //     if (ignoreConditionReq) {
+        //         return true;
+        //     }
+        //     else if (s.effects.countUps[AllActions.innerQuiet.shortName] + 1 == s.effects.countDowns[AllActions.whistle.shortName]) {
+        //         // Until we figure out how to model this
+        //         return true;
+        //     }
+        //     else {
+        //         return false;
+        //     }
+        // },
+        // checkWhistleThrees: function () {
+        //     if (ignoreConditionReq) {
+        //         return true;
+        //     }
+        //     else if (AllActions.whistle.shortName in s.effects.countDowns && (s.effects.countDowns[AllActions.whistle.shortName] % 3 == 0)) {
+        //         // Until we figure out how to model this
+        //         return true;
+        //     }
+        //     else {
+        //         return false;
+        //     }
+        // }
     };
 
     // Initialize counters
@@ -880,9 +943,9 @@ function simSynth(individual, startState, assumeSuccess, verbose, debug, logOutp
         if (AllActions.innerQuiet.shortName in s.effects.countUps) {
             iqCnt = s.effects.countUps[AllActions.innerQuiet.shortName];
         }
-        if (AllActions.whistle.shortName in s.effects.countDowns) {
-            wwywCnt = s.effects.countDowns[AllActions.whistle.shortName];
-        }
+        // if (AllActions.whistle.shortName in s.effects.countDowns) {
+        //     wwywCnt = s.effects.countDowns[AllActions.whistle.shortName];
+        // }
 
         if (debug) {
             logger.log('%2d %30s %5.0f %5.0f %8.1f %8.1f %5.1f %5.1f %8.1f %8.1f %5.0f %5.0f %5.0f', s.step, action.name, s.durabilityState, s.cpState, s.qualityState, s.progressState, iqCnt, wwywCnt, r.control, qualityGain, Math.floor(r.bProgressGain), Math.floor(r.bQualityGain), s.wastedActions);
@@ -891,6 +954,7 @@ function simSynth(individual, startState, assumeSuccess, verbose, debug, logOutp
             logger.log('%2d %30s %5.0f %5.0f %8.1f %8.1f %5.1f %5.1f', s.step, action.name, s.durabilityState, s.cpState, s.qualityState, s.progressState, iqCnt, wwywCnt);
         }
 
+        s.action = action.shortName
     }
 
     // Check for feasibility violations
@@ -920,8 +984,8 @@ function MonteCarloStep(startState, action, assumeSuccess, verbose, debug, logOu
     var s = startState.clone();
 
     // Conditions
-    var pGood = 0.23;
-    var pExcellent = 0.01;
+    var pGood = probGoodForSynth(s.synth);
+    var pExcellent = probExcellentForSynth(s.synth);
     var ignoreConditionReq = !s.synth.useConditions;
     var randomizeConditions = !ignoreConditionReq;
 
@@ -937,30 +1001,30 @@ function MonteCarloStep(startState, action, assumeSuccess, verbose, debug, logOu
         pGoodOrExcellent: function () {
             return 1;
         },
-        checkInnerQuietEqWhistle: function () {
-            if (ignoreConditionReq) {
-                return true;
-            }
-            else if (s.effects.countUps[AllActions.innerQuiet.shortName] + 1 == s.effects.countDowns[AllActions.whistle.shortName]) {
-                // Until we figure out how to model this
-                return true;
-            }
-            else {
-                return false;
-            }
-        },
-        checkWhistleThrees: function () {
-            if (ignoreConditionReq) {
-                return true;
-            }
-            else if (AllActions.whistle.shortName in s.effects.countDowns && (s.effects.countDowns[AllActions.whistle.shortName] % 3 == 0)) {
-                // Until we figure out how to model this
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
+        // checkInnerQuietEqWhistle: function () {
+        //     if (ignoreConditionReq) {
+        //         return true;
+        //     }
+        //     else if (s.effects.countUps[AllActions.innerQuiet.shortName] + 1 == s.effects.countDowns[AllActions.whistle.shortName]) {
+        //         // Until we figure out how to model this
+        //         return true;
+        //     }
+        //     else {
+        //         return false;
+        //     }
+        // },
+        // checkWhistleThrees: function () {
+        //     if (ignoreConditionReq) {
+        //         return true;
+        //     }
+        //     else if (AllActions.whistle.shortName in s.effects.countDowns && (s.effects.countDowns[AllActions.whistle.shortName] % 3 == 0)) {
+        //         // Until we figure out how to model this
+        //         return true;
+        //     }
+        //     else {
+        //         return false;
+        //     }
+        // }
     };
 
     // Initialize counters
@@ -1059,9 +1123,9 @@ function MonteCarloStep(startState, action, assumeSuccess, verbose, debug, logOu
     if (AllActions.innerQuiet.shortName in s.effects.countUps) {
         iqCnt = s.effects.countUps[AllActions.innerQuiet.shortName];
     }
-    if (AllActions.whistle.shortName in s.effects.countDowns) {
-        wwywCnt = s.effects.countDowns[AllActions.whistle.shortName];
-    }
+    // if (AllActions.whistle.shortName in s.effects.countDowns) {
+    //     wwywCnt = s.effects.countDowns[AllActions.whistle.shortName];
+    // }
 
     if (debug) {
         logger.log('%2d %30s %5.0f %5.0f %8.0f %8.0f %5.0f %5.0f %5.0f %5.0f %5.0f %5.0f %5.0f %-10s %5.0f', s.step, action.name, s.durabilityState, s.cpState, s.qualityState, s.progressState, iqCnt, wwywCnt, r.control, qualityGain, Math.floor(r.bProgressGain), Math.floor(r.bQualityGain), s.wastedActions, s.condition, success);
@@ -1785,37 +1849,39 @@ var Ing1RecipeLevelTable = {
     49: 44,
     50: 45,
     55: 50,     // 50_1star     *** unverified
-    70: 50,     // 50_2star     *** unverified
+    70: 51,     // 50_2star     *** unverified
     90: 58,     // 50_3star     *** unverified
-    110: 58,    // 50_4star     *** unverified
+    110: 59,    // 50_4star     *** unverified
     115: 100,   // 51 @ 169/339 difficulty
-    120: 100,   // 51 @ 210/410 difficulty
-    125: 100,   // 52
+    120: 101,   // 51 @ 210/410 difficulty
+    125: 102,   // 52
     130: 110,   // 53
-    133: 110,   // 54
-    136: 110,   // 55
-    139: 124,   // 56
-    142: 129.5, // 57
-    145: 134.5, // 58
-    148: 139,   // 59
+    133: 111,   // 54
+    136: 112,   // 55
+    139: 126,   // 56
+    142: 131,   // 57
+    145: 134,   // 58
+    148: 137,   // 59
     150: 140,   // 60
     160: 151,   // 60_1star
-    170: 152.085, // 60_2star
-    180: 153.185, // 60_3star
-    190: 154.275, // 60_4star
-    255: 240,   // 61
-    260: 240,   // 61
-    265: 240,   // 62
+    180: 152,   // 60_2star
+    210: 153,   // 60_3star
+    220: 153,   // 60_3star
+    250: 154,   // 60_4star
+    255: 238,   // 61 @ 558/1116 difficulty
+    260: 240,   // 61 @ 700/1400 difficulty
+    265: 242,   // 62
     270: 250,   // 63
-    273: 250,   // 64
-    276: 250,   // 65
-    279: 264,   // 66
-    282: 269.5, // 67
-    285: 274.5, // 68
-    288: 279,   // 69
+    273: 251,   // 64
+    276: 252,   // 65
+    279: 266,   // 66
+    282: 271,   // 67
+    285: 274,   // 68
+    288: 277,   // 69
     290: 280,   // 70
-    300: 291.185, // 70_1star
-    320: 292.75, // 70_2star
+    300: 291,   // 70_1star
+    320: 292,   // 70_2star
+    350: 293,   // 70_3star
 };
 
 var Ing2RecipeLevelTable = {
@@ -1831,37 +1897,39 @@ var Ing2RecipeLevelTable = {
     49: 41,
     50: 42,
     55: 47,     // 50_1star     *** unverified
-    70: 47,     // 50_2star     *** unverified
+    70: 48,     // 50_2star     *** unverified
     90: 56,     // 50_3star     *** unverified
-    110: 56,    // 50_4star     *** unverified
-    115: 100,   // 51 @ 169/339 difficulty
-    120: 100,   // 51 @ 210/410 difficulty
-    125: 100,   // 52
-    130: 110,   // 53
+    110: 57,    // 50_4star     *** unverified
+    115: 97,    // 51 @ 169/339 difficulty
+    120: 99,    // 51 @ 210/410 difficulty
+    125: 101,   // 52
+    130: 109,   // 53
     133: 110,   // 54
-    136: 110,   // 55
-    139: 124,   // 56
-    142: 129.5, // 57
+    136: 111,   // 55
+    139: 125,   // 56
+    142: 130,   // 57
     145: 133,   // 58
     148: 136,   // 59
     150: 139,   // 60
     160: 150,   // 60_1star
-    170: 151.115, // 60_2star
-    180: 152.215, // 60_3star
-    190: 153.305, // 60_4star
-    255: 240,   // 61 @ 210/410 difficulty
-    260: 240,   // 61 @ 210/410 difficulty
-    265: 240,   // 62
-    270: 250,   // 63
+    180: 151,   // 60_2star
+    210: 152,   // 60_3star
+    220: 152,   // 60_3star
+    250: 153,   // 60_4star
+    255: 237,   // 61 @ 558/1116 difficulty
+    260: 239,   // 61 @ 700/1400 difficulty
+    265: 241,   // 62
+    270: 249,   // 63
     273: 250,   // 64
-    276: 250,   // 65
-    279: 264,   // 66
-    282: 269.5, // 67
+    276: 251,   // 65
+    279: 265,   // 66
+    282: 270,   // 67
     285: 273,   // 68
     288: 276,   // 69
     290: 279,   // 70
     300: 290,   // 70_1star
-    320: 292,   // 70_2star
+    320: 291,   // 70_2star
+    350: 292,   // 70_3star
 };
 
 var NymeaisWheelTable = {
@@ -1876,6 +1944,27 @@ var NymeaisWheelTable = {
     9: 10,
     10: 10,
     11: 10
+}
+
+var ProgressPenaltyTable = {
+    180: -0.02,
+    210: -0.035,
+    220: -0.035,
+    250: -0.04,
+    320: -0.02,
+    350: -0.035,
+}
+
+var QualityPenaltyTable = {
+    0: -0.02,
+    90: -0.03,
+    160: -0.05,
+    180: -0.06,
+    200: -0.07,
+    245: -0.08,
+    300: -0.09,
+    310: -0.10,
+    340: -0.11,
 }
 
 // Test objects

@@ -5,10 +5,12 @@
     "hq": true,
     "ilvl": 282,
     "name": {
+      "cn": "魔匠药茶",
       "de": "Handwerkerkoryphäen-Tee",
       "en": "Cunning Craftsman's Tea",
       "fr": "Infusion de capacité",
-      "ja": "魔匠の薬茶"
+      "ja": "魔匠の薬茶",
+      "ko": "명인의 약차"
     }
   },
   {
@@ -17,10 +19,12 @@
     "hq": false,
     "ilvl": 282,
     "name": {
+      "cn": "魔匠药茶",
       "de": "Handwerkerkoryphäen-Tee",
       "en": "Cunning Craftsman's Tea",
       "fr": "Infusion de capacité",
-      "ja": "魔匠の薬茶"
+      "ja": "魔匠の薬茶",
+      "ko": "명인의 약차"
     }
   },
   {
@@ -29,10 +33,12 @@
     "hq": true,
     "ilvl": 276,
     "name": {
+      "cn": "巨匠药茶",
       "de": "Handwerkerlegenden-Tee",
       "en": "Commanding Craftsman's Tea",
       "fr": "Infusion de maîtrise",
-      "ja": "巨匠の薬茶"
+      "ja": "巨匠の薬茶",
+      "ko": "거장의 약차"
     }
   },
   {
@@ -41,10 +47,12 @@
     "hq": false,
     "ilvl": 276,
     "name": {
+      "cn": "巨匠药茶",
       "de": "Handwerkerlegenden-Tee",
       "en": "Commanding Craftsman's Tea",
       "fr": "Infusion de maîtrise",
-      "ja": "巨匠の薬茶"
+      "ja": "巨匠の薬茶",
+      "ko": "거장의 약차"
     }
   },
   {
@@ -53,10 +61,12 @@
     "hq": true,
     "ilvl": 273,
     "name": {
+      "cn": "名匠药茶",
       "de": "Handwerkermeister-Tee",
       "en": "Competent Craftsman's Tea",
       "fr": "Infusion de virtuosité",
-      "ja": "名匠の薬茶"
+      "ja": "名匠の薬茶",
+      "ko": "장인의 약차"
     }
   },
   {
@@ -65,10 +75,12 @@
     "hq": false,
     "ilvl": 273,
     "name": {
+      "cn": "名匠药茶",
       "de": "Handwerkermeister-Tee",
       "en": "Competent Craftsman's Tea",
       "fr": "Infusion de virtuosité",
-      "ja": "名匠の薬茶"
+      "ja": "名匠の薬茶",
+      "ko": "장인의 약차"
     }
   }
 ]

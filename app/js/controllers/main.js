@@ -6,13 +6,13 @@
     .controller('MainController', controller);
 
   function controller($scope, $rootScope, $q, $modal, $translate, $location, _allClasses, _actionGroups, _actionsByName,
-    _profile, _localStorage, _xivdbtooltips, _getActionImagePath, _bonusStats, _languages, _isActionCrossClass)
+    _profile, _localStorage, _xivdbtooltips, _getActionImagePath, _bonusStats, _languages, _iActionClassSpecific)
   {
     $scope.allClasses = _allClasses;
     $scope.actionGroups = _actionGroups;
     $scope.allActions = _actionsByName;
     $scope.getActionImagePath = _getActionImagePath;
-    $scope.isActionCrossClass = _isActionCrossClass;
+    $scope.iActionClassSpecific = _iActionClassSpecific;
 
     $scope.changeLang = changeLang;
     $scope.currentLang = currentLang;
@@ -23,6 +23,7 @@
     $scope.saveSynthAs = saveSynthAs;
     $scope.deleteSynth = deleteSynth;
     $scope.renameSynth = renameSynth;
+    $scope.showMacroImportModal = showMacroImportModal;
     $scope.importSynth = importSynth;
     $scope.exportSynth = exportSynth;
     $scope.synthNameForDisplay = synthNameForDisplay;
@@ -259,15 +260,46 @@
       $scope.savedSynthNames = $scope.profile.synthNames();
     }
 
+    function showMacroImportModal() {
+      if (!$scope.profile) return;
+
+      var modalInstance = $modal.open({
+        templateUrl: 'modals/macroimport.html',
+        controller: 'MacroImportController',
+        windowClass: 'macro-import-modal',
+      });
+      modalInstance.result.then(function (result) {
+        $scope.sequence = result.sequence;
+      });
+    }
+
     function importSynth() {
       if (!$scope.profile) return;
 
-      var synthString = window.prompt('Enter new synth sequence code:', synthString);
-      var newSequence = JSON.parse(synthString);
+      var synthString = window.prompt('Enter new synth sequence code:');
+      if (synthString === null || synthString === "") { return; }
 
-      if (Array.isArray(newSequence) && newSequence.length > 0) {
-        $scope.sequence = newSequence;
+      var newSequence;
+      try {
+        newSequence = JSON.parse(synthString);
+      } catch(e) {
+        window.alert("Error: Malformed synth sequence.");
+        return;
       }
+
+      if (Array.isArray(newSequence)) {
+        newSequence = newSequence.filter(function (value) { return $scope.allActions[value] !== undefined; });
+        if (newSequence.length > 0) {
+          $scope.sequence = newSequence;
+        }
+        else {
+          window.alert("Error: Empty synth sequence.");
+        }
+      }
+      else {
+        window.alert("Error: Invalid synth sequence.");
+      }
+
     }
 
     function exportSynth() {
