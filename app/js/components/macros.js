@@ -90,12 +90,12 @@
           lines.push(line);
         }
         else {
-          lines.push('/echo Error: Unknown action ' + action);
+          lines.push('/echo 错误：未知技能 ' + action);
         }
       }
 
       if (lines.length > 0) {
-        lines.push('/echo Cross-class action setup complete ' + soundEffect(options.stepSoundEffect) + '\n');
+        lines.push('/echo 共通技能已经配置激活完毕！ ' + soundEffect(options.stepSoundEffect) + '\n');
       }
 
       return lines;
@@ -126,7 +126,7 @@
           lines.push({text: line, time: time});
         }
         else {
-          lines.push({text: '/echo Error: Unknown action ' + action, time: 0});
+          lines.push({text: '/echo 错误：未知技能 ' + action, time: 0});
         }
       }
 
@@ -149,7 +149,7 @@
 
         if (macroLineCount === MAX_LINES - 1) {
           if (lines.length - (j + 1) > 1) {
-            macroString += '/echo Macro #' + macroIndex + ' complete ' + soundEffect(options.stepSoundEffect) + '\n';
+            macroString += '/echo 宏 #' + macroIndex + ' 已经执行完毕 ' + soundEffect(options.stepSoundEffect) + '\n';
             macroList.push({text: macroString, time: macroTime});
             macroString = '';
             macroLineCount = 0;
@@ -161,7 +161,7 @@
 
       if (macroLineCount > 0) {
         if (macroLineCount < MAX_LINES) {
-          macroString += '/echo Macro #' + macroIndex + ' complete ' + soundEffect(options.finishSoundEffect) + '\n';
+          macroString += '/echo 宏 #' + macroIndex + ' 已经执行完毕 ' + soundEffect(options.finishSoundEffect) + '\n';
         }
         macroList.push({text: macroString, time: macroTime});
       }

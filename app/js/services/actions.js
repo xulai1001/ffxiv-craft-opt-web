@@ -131,7 +131,7 @@
 
   var actionGroups = [
     {
-      name: "Synthesis", actions: [
+      name: "作业技能", actions: [
       "basicSynth",
       "standardSynthesis",
       "flawlessSynthesis",
@@ -152,7 +152,7 @@
     ]
     },
     {
-      name: "Quality", actions: [
+      name: "加工技能", actions: [
       "basicTouch",
       "standardTouch",
       "advancedTouch",
@@ -167,14 +167,14 @@
     ]
     },
     {
-      name: "CP", actions: [
+      name: "制作力", actions: [
       "comfortZone",
       "rumination",
       "tricksOfTheTrade"
     ]
     },
     {
-      name: "Durability", actions: [
+      name: "耐久度", actions: [
       "mastersMend",
       "mastersMend2",
       "wasteNot",
@@ -184,7 +184,7 @@
     ]
     },
     {
-      name: "Buffs", actions: [
+      name: "增益", actions: [
       "innerQuiet",
       "steadyHand",
       "steadyHand2",
@@ -203,7 +203,7 @@
     ]
     },
     {
-      name: "Specialist", actions: [
+      name: "专精", actions: [
       //"whistle",
       //"satisfaction",
       "innovativeTouch",
@@ -224,7 +224,7 @@
     ]
     },
     {
-      name: "Other", actions: [
+      name: "其他", actions: [
       "observe"
     ]
     }

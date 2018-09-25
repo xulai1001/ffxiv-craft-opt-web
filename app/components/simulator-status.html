@@ -1,13 +1,13 @@
 <div class="simulator-status row-fluid">
   <div class="synth-status span6">
     <div class="title">
-      L{{stats.level}} {{recipe.cls}}
+      Lv.{{stats.level}} {{recipe.cls}}
       <span ng-if="stats.specialist">&nbsp;<small>(Specialist)</small></span>
     </div>
     <hr/>
     <table>
       <tr>
-        <td class="stats-label">Progress</td>
+        <td class="stats-label">进度</td>
       </tr>
       <tr>
         <td class="bar">
@@ -16,7 +16,7 @@
         <td class="bar-value">{{progress}} / {{recipe.difficulty}}</td>
       </tr>
       <tr>
-        <td class="stats-label">Quality</td>
+        <td class="stats-label">品质</td>
       </tr>
       <tr>
         <td class="bar">
@@ -25,7 +25,7 @@
         <td class="bar-value">{{quality}} / {{recipe.maxQuality}}</td>
       </tr>
       <tr>
-        <td class="stats-label">CP</td>
+        <td class="stats-label">制作力</td>
       </tr>
       <tr>
         <td class="bar">
@@ -38,13 +38,13 @@
     <table>
       <tr class="narrow">
         <td>
-          <span class="stats-label">Durability</span> {{durability}}&nbsp;/&nbsp;{{recipe.durability}}&emsp;
+          <span class="stats-label">耐久度</span> {{durability}}&nbsp;/&nbsp;{{recipe.durability}}&emsp;
         </td>
         <td>
-          <span class="stats-label">HQ</span>&nbsp;{{hqPercent}}%&emsp;
+          <span class="stats-label">高品质率</span>&nbsp;{{hqPercent}}%&emsp;
         </td>
         <td class="align-right">
-          <span class="stats-label">Reliability</span>&nbsp;{{successPercent | number: 0}}%
+          <span class="stats-label">成功率</span>&nbsp;{{successPercent | number: 0}}%
         </td>
       </tr>
     </table>
@@ -52,7 +52,7 @@
 
   <div class="bonus-stats span6">
     <div class="title">
-      Attributes
+      人物属性
       <a ui-sref="crafter-attributes"><small><i class="fa fa-edit"></i></small></a>
     </div>
     <hr/>
@@ -60,13 +60,13 @@
       <table>
         <tr>
           <td>
-            <span class="stats-label">Food</span><br/>
+            <span class="stats-label">料理</span><br/>
             <select class="input-fill" ng-model="bonusStats.food"
                     ng-options="buffName(buff) for buff in buffList.food track by buff.id">
             </select>
           </td>
           <td>
-            <span class="stats-label">Medicine</span><br/>
+            <span class="stats-label">药品</span><br/>
             <select class="input-fill" ng-model="bonusStats.medicine"
                     ng-options="buffName(buff) for buff in buffList.medicine track by buff.id">
             </select>
@@ -75,7 +75,7 @@
       </table>
       <table>
         <tr>
-          <td class="col1 stats-label">Craftsmanship</td>
+          <td class="col1 stats-label">作业精度</td>
           <td class="col2 value">{{baseStats.craftsmanship}}</td>
           <td class="col3 value">+&nbsp;{{buffStats.craftsmanship}}</td>
           <td class="col4">
@@ -87,7 +87,7 @@
           <td class="col6">&nbsp;</td>
         </tr>
         <tr>
-          <td class="col1 stats-label">Control</td>
+          <td class="col1 stats-label">加工精度</td>
           <td class="col2 value">{{baseStats.control}}</td>
           <td class="col3 value">+&nbsp;{{buffStats.control}}</td>
           <td class="col4">
@@ -98,7 +98,7 @@
           <td class="col6">&nbsp;</td>
         </tr>
         <tr>
-          <td class="col1 stats-label">CP</td>
+          <td class="col1 stats-label">制作力</td>
           <td class="col2 value">{{baseStats.cp}}</td>
           <td class="col3 value">+&nbsp;{{buffStats.cp}}</td>
           <td class="col4">
@@ -109,7 +109,7 @@
           <td class="col6">&nbsp;</td>
         </tr>
         <tr>
-          <td class="col1 stats-label">Start Quality</td>
+          <td class="col1 stats-label">起始品质</td>
           <td class="col2 value">0</td>
           <td class="col3 value">+&nbsp;0</td>
           <td class="col4">

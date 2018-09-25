@@ -121,8 +121,8 @@ Synth.prototype.calculateBaseQualityIncrease = function (levelDifference, contro
     var levelCorrectionFactor = 0;
     var levelCorrectedQuality = 0;
 
-    baseQuality = 3.46e-5 * control * control + 0.3514 * control + 34.66;
-
+    baseQuality = 3.4610e-5 * control * control + 0.351050 * control + 34.66;
+    //baseQuality = 3.46e-5 * control * control + 0.3514 * control + 34.66;
     if (recipeLevel > 50) {
         // Starts at base penalty amount depending on recipe tier
         var recipeLevelPenaltyLevel = 0;
@@ -2017,6 +2017,7 @@ var Ing1RecipeLevelTable = {
     300: 291,   // 70_1star
     320: 292,   // 70_2star
     350: 293,   // 70_3star
+	390: 294   // 70_4star
 };
 
 var Ing2RecipeLevelTable = {
@@ -2065,6 +2066,7 @@ var Ing2RecipeLevelTable = {
     300: 290,   // 70_1star
     320: 291,   // 70_2star
     350: 292,   // 70_3star
+	390: 293   // 70_4star
 };
 
 var NymeaisWheelTable = {
@@ -2088,6 +2090,7 @@ var ProgressPenaltyTable = {
     250: -0.04,
     320: -0.02,
     350: -0.035,
+	390: -0.0465   // 70_4star
 }
 
 var QualityPenaltyTable = {
@@ -2100,6 +2103,7 @@ var QualityPenaltyTable = {
     300: -0.09,
     310: -0.10,
     340: -0.11,
+	390: -0.1305
 }
 
 // Test objects

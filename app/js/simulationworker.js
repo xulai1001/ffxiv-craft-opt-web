@@ -79,9 +79,9 @@ function runProbablisticSim(id, settings) {
 
   var logOutput = new LogOutput();
 
-  logOutput.write('Use Conditions: %s\n\n'.sprintf(sim.synth.useConditions));
+  logOutput.write('模拟品质状态: %s\n\n'.sprintf(sim.synth.useConditions));
 
-  logOutput.write("Probabilistic Result\n");
+  logOutput.write("概率模拟结果：\n");
   logOutput.write("====================\n");
 
   simSynth(sim.sequence, sim.startState, false, true, settings.debug, logOutput);
@@ -101,9 +101,9 @@ function runMonteCarloSim(id, settings) {
 
   var logOutput = new LogOutput();
 
-  logOutput.write('Seed: %d, Use Conditions: %s\n\n'.sprintf(sim.seed, sim.synth.useConditions));
+  logOutput.write('种子: %d, 考虑品质: %s\n\n'.sprintf(sim.seed, sim.synth.useConditions));
 
-  var monteCarloSimHeader = "Monte Carlo Result of " + settings.maxMontecarloRuns + " runs";
+  var monteCarloSimHeader = "以下是“蒙特卡洛·模拟”运行了 " + settings.maxMontecarloRuns + " 次的结果";
   logOutput.write(monteCarloSimHeader + "\n");
   logOutput.write("=".repeat(monteCarloSimHeader.length));
   logOutput.write("\n");

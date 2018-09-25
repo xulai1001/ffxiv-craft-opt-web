@@ -27,11 +27,11 @@
           <div class="my-dropdown-menu">
             <input class="input-medium search my-dropdown-focus" type="text" name="name"
                    ng-model="recipeSearch.text"
-                   placeholder="Search..." select-on-focus stop-click-propogation
+                   placeholder="搜索..." select-on-focus stop-click-propogation
                    ng-keypress="onSearchKeyPress($event)" ng-keydown="onSearchKeyDown($event)"
                    id="recipe-search-text"/>
             <ul class="recipe-menu-scrollable" isolate-scrolling>
-              <li class="loading" ng-show="recipeSearch.loading"><i class="fa fa-spinner fa-spin"></i> Loading...
+              <li class="loading" ng-show="recipeSearch.loading"><i class="fa fa-spinner fa-spin"></i> 加载中...
               </li>
               <li ng-hide="recipeSearch.loading"
                   ng-repeat="r in recipeSearch.list | orderBy:recipeSearch.order"
@@ -78,12 +78,12 @@
                    on-drop="dropAction(dragEl, dropEl)"/>
             </div>
             <div class="control-group">
-              <button class="btn" ng-click="cancel()">Cancel</button>
-              <button class="btn btn-primary" ng-disabled="!isSequenceDirty()" ng-click="save()">Save</button>
-              <button class="btn btn-warning" ng-disabled="!isSequenceDirty()" ng-click="revert()">Revert</button>
-              <button class="btn btn-warning" ng-disabled="editSequence.length == 0" ng-click="clear()">Clear</button>
+              <button class="btn" ng-click="cancel()">取消</button>
+              <button class="btn btn-primary" ng-disabled="!isSequenceDirty()" ng-click="save()">保存</button>
+              <button class="btn btn-warning" ng-disabled="!isSequenceDirty()" ng-click="revert()">还原</button>
+              <button class="btn btn-warning" ng-disabled="editSequence.length == 0" ng-click="clear()">清空</button>
             </div>
-            <h5>Available Actions <small>(<a ui-sref="crafter-attributes">edit</a>)</small></h5>
+            <h5>可用操作 <small>(<a ui-sref="crafter-attributes">编辑</a>)</small></h5>
 
             <div class="action-table">
               <action-table cls="recipe.cls" action-classes="actionTableClasses" selectable="true" draggable="true"
@@ -131,9 +131,9 @@
 
           <div class="btn-toolbar pull-right">
             <button class="btn btn-primary" ng-click="editSequenceInline()" ng-disabled="simulatorStatus.running">
-              Edit...
+              编辑...
             </button>
-            <button class="btn btn-primary" ng-click="goToSolver()">Solve...</button>
+            <button class="btn btn-primary" ng-click="goToSolver()">求解...</button>
           </div>
         </div>
       </div>
@@ -143,16 +143,16 @@
   <div class="row-fluid">
     <tabset>
       <tab active="logTabs.monteCarlo.active">
-        <tab-heading>Monte Carlo Sim &nbsp; <i class="fa fa-refresh flat-button"
+        <tab-heading>蒙特·卡洛模拟 &nbsp; <i class="fa fa-refresh flat-button"
                                                ng-click="$emit('simulation.needs.update')"></i></tab-heading>
         <pre>{{simulatorStatus.monteCarlo.logText}}</pre>
       </tab>
       <tab active="logTabs.probabilistic.active">
-        <tab-heading>Probabilistic Sim</tab-heading>
+        <tab-heading>概率模拟</tab-heading>
         <pre>{{simulatorStatus.probabilistic.logText}}</pre>
       </tab>
       <tab active="logTabs.macro.active">
-        <tab-heading>Macro</tab-heading>
+        <tab-heading>宏命令</tab-heading>
         <macros sequence="sequence" cls="recipe.cls" options="macroOptions"></macros>
       </tab>
     </tabset>

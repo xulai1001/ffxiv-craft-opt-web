@@ -53,7 +53,7 @@ function start(settings) {
   }
 
   if (settings.maxLength > 0) {
-    logOutput.write("WARNING: Maximum length limit of %d is in effect!\n\n".sprintf(settings.maxLength));
+    logOutput.write("警告！最大序列限制数 %d 正在生效！\n\n".sprintf(settings.maxLength));
   }
 
   var crafterActions = [];
@@ -111,7 +111,7 @@ Settings:\n\
     var actionName = settings.crafter.actions[i];
     var action = AllActions[actionName];
     if (action === undefined) {
-      logOutput.write('Error: Action is unsupported: %s\n'.sprintf(actionName));
+      logOutput.write('错误！以下操作不受支持：%s\n'.sprintf(actionName));
     }
     else {
       crafterActions.push(AllActions[actionName]);
@@ -125,7 +125,7 @@ Settings:\n\
   });
 
   if (settings.debug) {
-    logOutput.write('Crafter Actions:\n');
+    logOutput.write('工匠操作:\n');
     for (var i = 0; i < crafterActions.length; i++) {
       var action = crafterActions[i];
       logOutput.write('  ');
@@ -165,18 +165,18 @@ Settings:\n\
         sequence.push(action);
       }
       else {
-        logOutput.write('Error: Removing disabled action from sequence: ' + actionName + '\n');
+        logOutput.write('错误！请从序列中删除禁用的操作：' + actionName + '\n');
       }
     }
     else {
-      logOutput.write('Error: Removing unsupported action from sequence: ' + actionName + '\n');
+      logOutput.write('错误！请从序列中删除不受支持的操作：' + actionName + '\n');
     }
   }
 
   if (sequence.length === 0) {
     sequence = heuristicSequenceBuilder(synth);
 
-    logOutput.write('No initial sequence provided; seeding with the following heuristic sequence:\n\n');
+    logOutput.write('没有提供初始序列！用以下启发式序列开始播种：\n\n');
 
     for (var i = 0; i < sequence.length; i++) {
       var action = sequence[i];
@@ -194,8 +194,8 @@ Settings:\n\
     var chk = heuristcState.checkViolations();
     var feasibility = chk.progressOk && chk.durabilityOk && chk.cpOk && chk.trickOk && chk.reliabilityOk;
 
-    logOutput.write("Heuristic sequence feasibility:\n");
-    logOutput.write('Progress: %s, Durability: %s, CP: %s, Tricks: %s, Reliability: %s\n\n'.sprintf(chk.progressOk, chk.durabilityOk, chk.cpOk, chk.trickOk, chk.reliabilityOk));
+    logOutput.write("启发式序列可行性:\n");
+    logOutput.write('进度: %s, 耐久度: %s, 制作力: %s, 技巧: %s, 可靠性: %s\n\n'.sprintf(chk.progressOk, chk.durabilityOk, chk.cpOk, chk.trickOk, chk.reliabilityOk));
   }
 
   var seqMaxLength = Math.max(50, sequence.length);

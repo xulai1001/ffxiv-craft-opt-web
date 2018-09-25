@@ -74,7 +74,7 @@
       "cn": "左舷船体元件",
       "de": "Backbordrumpf-Bauteil",
       "en": "Larboard Hull Component",
-      "fr": "Comp. de partie gauche de nacelle",
+      "fr": "Composant de partie gauche de nacelle",
       "ja": "左舷船体部材",
       "ko": "좌현 선체 부재"
     }
@@ -90,7 +90,7 @@
       "cn": "右舷船体元件",
       "de": "Steuerbordrumpf-Bauteil",
       "en": "Starboard Hull Component",
-      "fr": "Comp. de partie droite de nacelle",
+      "fr": "Composant de partie droite de nacelle",
       "ja": "右舷船体部材",
       "ko": "우현 선체 부재"
     }
@@ -938,7 +938,7 @@
       "cn": "左翼可动元件",
       "de": "Backbord-Tragflächengelenk-Bauteil",
       "en": "Larboard Wing Control Component",
-      "fr": "Comp. d'articulation d'aile gauche",
+      "fr": "Composant d'articulation d'aile gauche",
       "ja": "左翼可動部材",
       "ko": "왼쪽 날개 가동 부재"
     }
@@ -970,7 +970,7 @@
       "cn": "右翼可动元件",
       "de": "Steuerbord-Tragflächengelenk-Bauteil",
       "en": "Starboard Wing Control Component",
-      "fr": "Comp. d'articulation d'aile droite",
+      "fr": "Composant d'articulation d'aile droite",
       "ja": "右翼可動部材",
       "ko": "오른쪽 날개 가동 부재"
     }
@@ -1770,7 +1770,7 @@
       "cn": "长风羽饰元件",
       "de": "Bugschmuck-Bauteil",
       "en": "Figurehead Component",
-      "fr": "Aile d'Ehcatl",
+      "fr": "Composant de figure de proue",
       "ja": "エカトルの羽根飾り",
       "ko": "에카틀 깃털 장식"
     }
@@ -7104,6 +7104,23 @@
   },
   {
     "baseLevel": 50,
+    "difficulty": 419,
+    "durability": 80,
+    "id": "a9c1b66caa7",
+    "level": 70,
+    "maxQuality": 1460,
+    "name": {
+      "cn": "毛绒地毯（Carpeting）",
+      "de": "Teppichboden",
+      "en": "Carpeting",
+      "fr": "Carré de carpette",
+      "ja": "カーペット",
+      "ko": "Carpeting"
+    },
+    "stars": 2
+  },
+  {
+    "baseLevel": 50,
     "difficulty": 233,
     "durability": 80,
     "id": "6aeece3567f",
@@ -10121,7 +10138,7 @@
     "level": 145,
     "maxQuality": 7080,
     "name": {
-      "cn": "Brazier Components",
+      "cn": "篝火台部件",
       "de": "Feuerschalenteil",
       "en": "Brazier Components",
       "fr": "Composant de braséro",
@@ -10297,7 +10314,7 @@
     "level": 145,
     "maxQuality": 7080,
     "name": {
-      "cn": "Finery Components",
+      "cn": "交易品部件",
       "de": "Tauschware",
       "en": "Finery Components",
       "fr": "Marchandises commerciales",
@@ -10313,7 +10330,7 @@
     "level": 145,
     "maxQuality": 7080,
     "name": {
-      "cn": "Happi Components",
+      "cn": "法被部件",
       "de": "Happi-Element",
       "en": "Happi Components",
       "fr": "Composant de happi",
@@ -10329,7 +10346,7 @@
     "level": 145,
     "maxQuality": 3540,
     "name": {
-      "cn": "Ritual Implement Components",
+      "cn": "净化用祭具",
       "de": "Reinigungsfetisch",
       "en": "Ritual Implement Components",
       "fr": "Instruments de purification",
@@ -10345,7 +10362,7 @@
     "level": 145,
     "maxQuality": 3540,
     "name": {
-      "cn": "Trinket Components",
+      "cn": "礼品部件",
       "de": "Kleinigkeit",
       "en": "Trinket Components",
       "fr": "Présent modeste",
@@ -10361,7 +10378,7 @@
     "level": 145,
     "maxQuality": 7080,
     "name": {
-      "cn": "Uchiwa Components",
+      "cn": "团扇部件",
       "de": "Fächerteil",
       "en": "Uchiwa Components",
       "fr": "Élément d'éventail",
@@ -10377,7 +10394,7 @@
     "level": 148,
     "maxQuality": 5504,
     "name": {
-      "cn": "Altar Components",
+      "cn": "供台部件",
       "de": "Altarelement",
       "en": "Altar Components",
       "fr": "Composant d'autel",
@@ -10393,7 +10410,7 @@
     "level": 148,
     "maxQuality": 3669,
     "name": {
-      "cn": "Azim Steppe Souvenir Components",
+      "cn": "游牧民风格的商品",
       "de": "Handelsware",
       "en": "Azim Steppe Souvenir Components",
       "fr": "Produit d'inspiration nomade",
@@ -10409,7 +10426,7 @@
     "level": 148,
     "maxQuality": 7339,
     "name": {
-      "cn": "Buuz Cooking Paraphernalia",
+      "cn": "蒸包子用品",
       "de": "Buuds-Kochutensilie",
       "en": "Buuz Cooking Paraphernalia",
       "fr": "Ustensile de cuisine pour buuz",
@@ -10425,7 +10442,7 @@
     "level": 148,
     "maxQuality": 7339,
     "name": {
-      "cn": "Catfish Lure Components",
+      "cn": "鲶鱼钓具",
       "de": "Wels-Köder",
       "en": "Catfish Lure Components",
       "fr": "Accessoire de pêche au poisson-chat",
@@ -10633,7 +10650,7 @@
     "level": 148,
     "maxQuality": 7339,
     "name": {
-      "cn": "Hingan Ritual Paraphernalia",
+      "cn": "祖先招待用品",
       "de": "Ritualgegenstand zur Ahnenverehrung",
       "en": "Hingan Ritual Paraphernalia",
       "fr": "Objet cérémoniel",
@@ -10681,12 +10698,28 @@
     "level": 148,
     "maxQuality": 7339,
     "name": {
-      "cn": "Mol Tea Ceremony Paraphernalia",
+      "cn": "茶会必需品",
       "de": "Tee-Bedarfsartikel",
       "en": "Mol Tea Ceremony Paraphernalia",
       "fr": "Élément de cérémonie du thé",
       "ja": "茶会必需品",
       "ko": "Mol Tea Ceremony Paraphernalia"
+    }
+  },
+  {
+    "baseLevel": 59,
+    "difficulty": 1654,
+    "durability": 70,
+    "id": "8020803f3cc",
+    "level": 148,
+    "maxQuality": 3669,
+    "name": {
+      "cn": "沙发坐垫（Sofa Cushions）",
+      "de": "Sofakissen",
+      "en": "Sofa Cushions",
+      "fr": "Coussins assortis",
+      "ja": "クッションセット",
+      "ko": "Sofa Cushions"
     }
   },
   {
@@ -10697,7 +10730,7 @@
     "level": 148,
     "maxQuality": 1834,
     "name": {
-      "cn": "Substitute Offering",
+      "cn": "供品",
       "de": "Opfergabe",
       "en": "Substitute Offering",
       "fr": "Offrande piégée",
@@ -10713,7 +10746,7 @@
     "level": 150,
     "maxQuality": 1962,
     "name": {
-      "cn": "Ceremonial Bow Components",
+      "cn": "祭弓部件",
       "de": "Ritualbogenelement",
       "en": "Ceremonial Bow Components",
       "fr": "Composant d'arc cérémoniel",
@@ -10969,7 +11002,7 @@
     "level": 150,
     "maxQuality": 7851,
     "name": {
-      "cn": "Confetti-making Tools",
+      "cn": "纸屑生产工具",
       "de": "Konfettiwerkzeug",
       "en": "Confetti-making Tools",
       "fr": "Outil de papeterie",
@@ -10985,7 +11018,7 @@
     "level": 150,
     "maxQuality": 1962,
     "name": {
-      "cn": "Culinary Knife Component",
+      "cn": "常用菜刀的部件",
       "de": "Messerteil",
       "en": "Culinary Knife Component",
       "fr": "Composant de couteau de cuisine",
@@ -11001,7 +11034,7 @@
     "level": 150,
     "maxQuality": 3925,
     "name": {
-      "cn": "Drum Parts",
+      "cn": "太鼓部件",
       "de": "Trommelwerkstoff",
       "en": "Drum Parts",
       "fr": "Composant de taiko",
@@ -11017,7 +11050,7 @@
     "level": 150,
     "maxQuality": 1962,
     "name": {
-      "cn": "Dzo Shear Components",
+      "cn": "牛毛剪刀部件",
       "de": "Scherenteil",
       "en": "Dzo Shear Components",
       "fr": "Élément d'entretien de ciseaux de toilettage",
@@ -11033,7 +11066,7 @@
     "level": 150,
     "maxQuality": 2904,
     "name": {
-      "cn": "Effigy Components",
+      "cn": "鲶鱼精人偶部件",
       "de": "Namazuo-Puppenelement",
       "en": "Effigy Components",
       "fr": "Composant de géant d'osier",
@@ -11049,7 +11082,7 @@
     "level": 150,
     "maxQuality": 7851,
     "name": {
-      "cn": "Elixir Mixing Paraphernalia",
+      "cn": "绝妙的调配用品",
       "de": "Destillierapparat-Ersatzteil",
       "en": "Elixir Mixing Paraphernalia",
       "fr": "Élément nécessaire à une mixtion",
@@ -11065,7 +11098,7 @@
     "level": 150,
     "maxQuality": 5888,
     "name": {
-      "cn": "Generous Gift",
+      "cn": "谢礼",
       "de": "Dankeschön-Geschenk",
       "en": "Generous Gift",
       "fr": "Cadeau de remerciement",
@@ -11145,7 +11178,7 @@
     "level": 150,
     "maxQuality": 1962,
     "name": {
-      "cn": "Korrigan Doll",
+      "cn": "魅惑的魔物人偶",
       "de": "Bezaubernde Korrigane-Puppe",
       "en": "Korrigan Doll",
       "fr": "Poupée envoûtante korrigan",
@@ -11161,7 +11194,7 @@
     "level": 150,
     "maxQuality": 7851,
     "name": {
-      "cn": "Land Diving Gear",
+      "cn": "陆地蹦极用品",
       "de": "Zubehörteil für ein Naghol-Sprungseil",
       "en": "Land Diving Gear",
       "fr": "Composant de système d'attache",
@@ -11177,7 +11210,7 @@
     "level": 150,
     "maxQuality": 3925,
     "name": {
-      "cn": "Mikoshi Frippery",
+      "cn": "神轿部件",
       "de": "Mikoshi-Element",
       "en": "Mikoshi Frippery",
       "fr": "Composant de mikoshi",
@@ -11193,7 +11226,7 @@
     "level": 150,
     "maxQuality": 1962,
     "name": {
-      "cn": "Pristine Fruit Figurine",
+      "cn": "投掷用特产",
       "de": "Festliches Wurfgeschoss",
       "en": "Pristine Fruit Figurine",
       "fr": "Répliques de produits régionaux",
@@ -11209,7 +11242,7 @@
     "level": 150,
     "maxQuality": 7851,
     "name": {
-      "cn": "Stable Supplies",
+      "cn": "养马必需品",
       "de": "Utensil für die Pferdezucht",
       "en": "Stable Supplies",
       "fr": "Accessoire d'élevage équin",
@@ -11225,7 +11258,7 @@
     "level": 150,
     "maxQuality": 7851,
     "name": {
-      "cn": "Steeping Accessory",
+      "cn": "烤鲶鱼用品",
       "de": "Kochwerkzeug",
       "en": "Steeping Accessory",
       "fr": "Composant de cuisine namazu",
@@ -13942,7 +13975,7 @@
     "level": 250,
     "maxQuality": 6593,
     "name": {
-      "cn": "Trouser Hanger",
+      "cn": "下装衣架",
       "de": "Hosenbügel",
       "en": "Trouser Hanger",
       "fr": "Porte-pantalon",
@@ -14247,7 +14280,7 @@
     "level": 265,
     "maxQuality": 7801,
     "name": {
-      "cn": "Anti-shark Harpoon",
+      "cn": "防鲨用品",
       "de": "Haifischharpune",
       "en": "Anti-shark Harpoon",
       "fr": "Harpon anti-requin",
@@ -14263,7 +14296,7 @@
     "level": 265,
     "maxQuality": 7801,
     "name": {
-      "cn": "Gyr Abanian Remedies",
+      "cn": "基拉巴尼亚医药品",
       "de": "Phiolenset abanischer Medizin",
       "en": "Gyr Abanian Remedies",
       "fr": "Remèdes gyrabaniens",
@@ -14279,7 +14312,7 @@
     "level": 265,
     "maxQuality": 3900,
     "name": {
-      "cn": "Gyr Abanian Remedy Components",
+      "cn": "基拉巴尼亚医药品部件",
       "de": "Komponente abanischer Medizin",
       "en": "Gyr Abanian Remedy Components",
       "fr": "Composants pour remèdes gyrabaniens",
@@ -14295,7 +14328,7 @@
     "level": 265,
     "maxQuality": 3900,
     "name": {
-      "cn": "Harpoon Components",
+      "cn": "防鲨用品部件",
       "de": "Komponente einer Haifischharpune",
       "en": "Harpoon Components",
       "fr": "Composants pour harpon anti-requin",
@@ -14503,7 +14536,7 @@
     "level": 270,
     "maxQuality": 8351,
     "name": {
-      "cn": "Coerthan Cold-weather Gear",
+      "cn": "库尔札斯防寒用品",
       "de": "Coerthischer Wintermantel",
       "en": "Coerthan Cold-weather Gear",
       "fr": "Vêtements chauds du Coerthas",
@@ -14519,7 +14552,7 @@
     "level": 270,
     "maxQuality": 4175,
     "name": {
-      "cn": "Cold-weather Gear Components",
+      "cn": "库尔札斯防寒用品部件",
       "de": "Komponente coerthischer Winterkleidung",
       "en": "Cold-weather Gear Components",
       "fr": "Composants pour vêtements chauds du Coerthas",
@@ -14807,7 +14840,7 @@
     "level": 270,
     "maxQuality": 8351,
     "name": {
-      "cn": "Sui-no-Sato Special",
+      "cn": "翠水乡特产",
       "de": "Kostbarkeit aus Sui no Sato",
       "en": "Sui-no-Sato Special",
       "fr": "Spécialité de Sui-no-Sato",
@@ -14823,7 +14856,7 @@
     "level": 270,
     "maxQuality": 4175,
     "name": {
-      "cn": "Sui-no-Sato Special Components",
+      "cn": "翠水乡特产部件",
       "de": "Komponente einer Kostbarkeit aus Sui no Sato",
       "en": "Sui-no-Sato Special Components",
       "fr": "Composants pour spécialité de Sui-no-Sato",
@@ -14839,7 +14872,7 @@
     "level": 273,
     "maxQuality": 8680,
     "name": {
-      "cn": "Cloud Pearl",
+      "cn": "云海珍宝",
       "de": "Wolkenmeerperle",
       "en": "Cloud Pearl",
       "fr": "Rareté de la Mer de nuages",
@@ -14855,7 +14888,7 @@
     "level": 273,
     "maxQuality": 4340,
     "name": {
-      "cn": "Cloud Pearl Components",
+      "cn": "云海珍宝部件",
       "de": "Komponente einer Wolkenmeerperle",
       "en": "Cloud Pearl Components",
       "fr": "Composants pour rareté de la Mer de nuages",
@@ -15373,6 +15406,22 @@
       "fr": "Étoffe de serge des steppes",
       "ja": "ステップサージ",
       "ko": "초원 능직물"
+    }
+  },
+  {
+    "baseLevel": 66,
+    "difficulty": 4339,
+    "durability": 80,
+    "id": "cc15d1ff25f",
+    "level": 279,
+    "maxQuality": 5838,
+    "name": {
+      "cn": "羊毛针织（Unfinished Shawl）",
+      "de": "Unfertiger Wollschal",
+      "en": "Unfinished Shawl",
+      "fr": "Écharpe inachevée",
+      "ja": "ニッティングウール",
+      "ko": "Unfinished Shawl"
     }
   },
   {
@@ -16329,7 +16378,7 @@
     "level": 320,
     "maxQuality": 15837,
     "name": {
-      "cn": "Boulevardier's Hat",
+      "cn": "花花公子帽（Boulevardier's Hat）",
       "de": "Boulevardier-Hut",
       "en": "Boulevardier's Hat",
       "fr": "Chapeau de mondain",
@@ -16346,7 +16395,7 @@
     "level": 320,
     "maxQuality": 15837,
     "name": {
-      "cn": "Boulevardier's Ruffled Pants",
+      "cn": "花花公子花边裤（Boulevardier's Ruffled Pants）",
       "de": "Boulevardier-Hose",
       "en": "Boulevardier's Ruffled Pants",
       "fr": "Pantalon à froufrous de mondain",
@@ -16363,7 +16412,7 @@
     "level": 320,
     "maxQuality": 15837,
     "name": {
-      "cn": "Boulevardier's Ruffled Shirt",
+      "cn": "花花公子花边衬衫（Boulevardier's Ruffled Shirt）",
       "de": "Boulevardier-Rüschenhemd",
       "en": "Boulevardier's Ruffled Shirt",
       "fr": "Chemise à froufrous de mondain",
@@ -16652,7 +16701,7 @@
     "level": 320,
     "maxQuality": 7918,
     "name": {
-      "cn": "Miniature Iloh",
+      "cn": "衣楼模型",
       "de": "Miniatur-Iloh",
       "en": "Miniature Iloh",
       "fr": "Maquette d'iloh",
@@ -16669,7 +16718,7 @@
     "level": 320,
     "maxQuality": 7918,
     "name": {
-      "cn": "Picnic Set",
+      "cn": "野餐套装",
       "de": "Picknick-Set",
       "en": "Picnic Set",
       "fr": "Service à pique-nique",
@@ -16686,7 +16735,7 @@
     "level": 320,
     "maxQuality": 15837,
     "name": {
-      "cn": "Quaintrelle's Hat",
+      "cn": "风尚礼帽",
       "de": "Quaintrelle-Hut",
       "en": "Quaintrelle's Hat",
       "fr": "Chapeau d'hédoniste",
@@ -16703,7 +16752,7 @@
     "level": 320,
     "maxQuality": 15837,
     "name": {
-      "cn": "Quaintrelle's Ruffled Dress",
+      "cn": "风尚花边长裙",
       "de": "Quaintrelle-Rüschenkleid",
       "en": "Quaintrelle's Ruffled Dress",
       "fr": "Robe à froufrous d'hédoniste",
@@ -16720,7 +16769,7 @@
     "level": 320,
     "maxQuality": 15837,
     "name": {
-      "cn": "Quaintrelle's Ruffled Skirt",
+      "cn": "风尚花边短裙",
       "de": "Quaintrelle-Rüschenrock",
       "en": "Quaintrelle's Ruffled Skirt",
       "fr": "Jupe à froufrous d'hédoniste",
@@ -16754,7 +16803,7 @@
     "level": 320,
     "maxQuality": 7918,
     "name": {
-      "cn": "Sewing Baskets",
+      "cn": "裁衣匠布料筐",
       "de": "Nähkörbchen",
       "en": "Sewing Baskets",
       "fr": "Paniers de couturier",
@@ -16805,7 +16854,7 @@
     "level": 320,
     "maxQuality": 7918,
     "name": {
-      "cn": "Wind-up Magnai",
+      "cn": "迷你玛格奈",
       "de": "Magnai-Puppe",
       "en": "Wind-up Magnai",
       "fr": "Magnai miniature",
@@ -16822,7 +16871,7 @@
     "level": 320,
     "maxQuality": 7918,
     "name": {
-      "cn": "Wind-up Sadu",
+      "cn": "迷你纱都",
       "de": "Sadu-Puppe",
       "en": "Wind-up Sadu",
       "fr": "Sadu miniature",
@@ -16856,7 +16905,7 @@
     "level": 350,
     "maxQuality": 9243,
     "name": {
-      "cn": "Lunar Barding",
+      "cn": "月读装甲",
       "de": "Tsukuyomi-Rossharnisch",
       "en": "Lunar Barding",
       "fr": "Barde de Tsukuyomi",
@@ -16873,7 +16922,7 @@
     "level": 350,
     "maxQuality": 29579,
     "name": {
-      "cn": "Onishi Dogi",
+      "cn": "鬼师胴着",
       "de": "Onishi-Dogi",
       "en": "Onishi Dogi",
       "fr": "Dôgi Onishi",
@@ -16890,7 +16939,7 @@
     "level": 350,
     "maxQuality": 29579,
     "name": {
-      "cn": "Onishi Kasa",
+      "cn": "鬼师帽",
       "de": "Onishi-Kasa",
       "en": "Onishi Kasa",
       "fr": "Kasa Onishi",
@@ -16907,7 +16956,7 @@
     "level": 350,
     "maxQuality": 29579,
     "name": {
-      "cn": "Onishi Momohiki",
+      "cn": "鬼师束裤",
       "de": "Onishi-Momohiki",
       "en": "Onishi Momohiki",
       "fr": "Momohiki Onishi",
@@ -16924,7 +16973,7 @@
     "level": 350,
     "maxQuality": 29579,
     "name": {
-      "cn": "Onishi Obi",
+      "cn": "鬼师带",
       "de": "Onishi-Obi",
       "en": "Onishi Obi",
       "fr": "Obi Onishi",
@@ -16958,7 +17007,7 @@
     "level": 350,
     "maxQuality": 9243,
     "name": {
-      "cn": "Stuffed Tsukuyomi",
+      "cn": "月读人偶",
       "de": "Stoff-Tsukuyomi",
       "en": "Stuffed Tsukuyomi",
       "fr": "Peluche de Tsukuyomi",
@@ -17311,11 +17360,62 @@
     "baseLevel": 70,
     "difficulty": 3943,
     "durability": 70,
+    "id": "cd603dbabd3",
+    "level": 350,
+    "maxQuality": 18487,
+    "name": {
+      "cn": "丝质羊毛靴（Whisperfine Woolen Boots）",
+      "de": "Flüsterfein-Wollstiefel",
+      "en": "Whisperfine Woolen Boots",
+      "fr": "Bottes de laine soyeuse",
+      "ja": "ウィスパーファインウール・ブーツ",
+      "ko": "Whisperfine Woolen Boots"
+    },
+    "stars": 3
+  },
+  {
+    "baseLevel": 70,
+    "difficulty": 3943,
+    "durability": 70,
+    "id": "6b408439fbd",
+    "level": 350,
+    "maxQuality": 18487,
+    "name": {
+      "cn": "丝质羊毛大衣（Whisperfine Woolen Coat）",
+      "de": "Flüsterfein-Wollmantel",
+      "en": "Whisperfine Woolen Coat",
+      "fr": "Manteau de laine soyeuse",
+      "ja": "ウィスパーファインウール・コート",
+      "ko": "Whisperfine Woolen Coat"
+    },
+    "stars": 3
+  },
+  {
+    "baseLevel": 70,
+    "difficulty": 3943,
+    "durability": 70,
+    "id": "debb3454163",
+    "level": 350,
+    "maxQuality": 18487,
+    "name": {
+      "cn": "丝质羊毛短裤（Whisperfine Woolen Shorts）",
+      "de": "Flüsterfein-Wollshorts",
+      "en": "Whisperfine Woolen Shorts",
+      "fr": "Bas-de-corps de laine soyeuse",
+      "ja": "ウィスパーファインウール・ボトム",
+      "ko": "Whisperfine Woolen Shorts"
+    },
+    "stars": 3
+  },
+  {
+    "baseLevel": 70,
+    "difficulty": 3943,
+    "durability": 70,
     "id": "c41d134806d",
     "level": 350,
     "maxQuality": 29579,
     "name": {
-      "cn": "Yamashi Dogi",
+      "cn": "山师胴着",
       "de": "Yamashi-Dogi",
       "en": "Yamashi Dogi",
       "fr": "Dôgi Yamashi",
@@ -17332,7 +17432,7 @@
     "level": 350,
     "maxQuality": 29579,
     "name": {
-      "cn": "Yamashi Momohiki",
+      "cn": "山师束裤",
       "de": "Yamashi-Momohiki",
       "en": "Yamashi Momohiki",
       "fr": "Momohiki Yamashi",
@@ -17349,7 +17449,7 @@
     "level": 350,
     "maxQuality": 29579,
     "name": {
-      "cn": "Yamashi Obi",
+      "cn": "山师带",
       "de": "Yamashi-Obi",
       "en": "Yamashi Obi",
       "fr": "Obi Yamashi",
@@ -17357,5 +17457,277 @@
       "ko": "Yamashi Obi"
     },
     "stars": 3
+  },
+  {
+    "baseLevel": 70,
+    "difficulty": 3728,
+    "durability": 70,
+    "id": "0847156b35e",
+    "level": 390,
+    "maxQuality": 29591,
+    "name": {
+      "cn": "罗刹术士道衣",
+      "de": "Rakshasa-Dogi der Magie",
+      "en": "Rakshasa Dogi of Casting",
+      "fr": "Dôgi rakshasa d'incantateur",
+      "ja": "羅刹道着【術士】",
+      "ko": "Rakshasa Dogi of Casting"
+    },
+    "stars": 4
+  },
+  {
+    "baseLevel": 70,
+    "difficulty": 3728,
+    "durability": 70,
+    "id": "46c7c1a1ad3",
+    "level": 390,
+    "maxQuality": 29591,
+    "name": {
+      "cn": "罗刹学士道衣",
+      "de": "Rakshasa-Dogi der Heilung",
+      "en": "Rakshasa Dogi of Healing",
+      "fr": "Dôgi rakshasa de soigneur",
+      "ja": "羅刹道着【学士】",
+      "ko": "Rakshasa Dogi of Healing"
+    },
+    "stars": 4
+  },
+  {
+    "baseLevel": 70,
+    "difficulty": 3728,
+    "durability": 70,
+    "id": "dd2ffac8212",
+    "level": 390,
+    "maxQuality": 29591,
+    "name": {
+      "cn": "罗刹弓士袴",
+      "de": "Rakshasa-Hakama des Zielens",
+      "en": "Rakshasa Hakama of Aiming",
+      "fr": "Hakama rakshasa de pisteur",
+      "ja": "羅刹袴【弓士】",
+      "ko": "Rakshasa Hakama of Aiming"
+    },
+    "stars": 4
+  },
+  {
+    "baseLevel": 70,
+    "difficulty": 3728,
+    "durability": 70,
+    "id": "ef42eaa2425",
+    "level": 390,
+    "maxQuality": 29591,
+    "name": {
+      "cn": "罗刹间士袴",
+      "de": "Rakshasa-Hakama des Spähens",
+      "en": "Rakshasa Hakama of Scouting",
+      "fr": "Hakama rakshasa d'éclaireur",
+      "ja": "羅刹袴【間士】",
+      "ko": "Rakshasa Hakama of Scouting"
+    },
+    "stars": 4
+  },
+  {
+    "baseLevel": 70,
+    "difficulty": 3728,
+    "durability": 70,
+    "id": "f831afe1566",
+    "level": 390,
+    "maxQuality": 29591,
+    "name": {
+      "cn": "罗刹拳士袴",
+      "de": "Rakshasa-Hakama des Schlagens",
+      "en": "Rakshasa Hakama of Striking",
+      "fr": "Hakama rakshasa d'agresseur",
+      "ja": "羅刹袴【拳士】",
+      "ko": "Rakshasa Hakama of Striking"
+    },
+    "stars": 4
+  },
+  {
+    "baseLevel": 70,
+    "difficulty": 3728,
+    "durability": 70,
+    "id": "17e5582f046",
+    "level": 390,
+    "maxQuality": 29591,
+    "name": {
+      "cn": "罗刹弓士羽织",
+      "de": "Rakshasa-Haori des Zielens",
+      "en": "Rakshasa Haori of Aiming",
+      "fr": "Haori rakshasa de pisteur",
+      "ja": "羅刹羽織【弓士】",
+      "ko": "Rakshasa Haori of Aiming"
+    },
+    "stars": 4
+  },
+  {
+    "baseLevel": 70,
+    "difficulty": 3728,
+    "durability": 70,
+    "id": "511224973e2",
+    "level": 390,
+    "maxQuality": 29591,
+    "name": {
+      "cn": "罗刹间士羽织",
+      "de": "Rakshasa-Haori des Spähens",
+      "en": "Rakshasa Haori of Scouting",
+      "fr": "Haori rakshasa d'éclaireur",
+      "ja": "羅刹羽織【間士】",
+      "ko": "Rakshasa Haori of Scouting"
+    },
+    "stars": 4
+  },
+  {
+    "baseLevel": 70,
+    "difficulty": 3728,
+    "durability": 70,
+    "id": "2743490e51e",
+    "level": 390,
+    "maxQuality": 29591,
+    "name": {
+      "cn": "罗刹拳士羽织",
+      "de": "Rakshasa-Haori des Schlagens",
+      "en": "Rakshasa Haori of Striking",
+      "fr": "Haori rakshasa d'agresseur",
+      "ja": "羅刹羽織【拳士】",
+      "ko": "Rakshasa Haori of Striking"
+    },
+    "stars": 4
+  },
+  {
+    "baseLevel": 70,
+    "difficulty": 3728,
+    "durability": 70,
+    "id": "c0d405ee677",
+    "level": 390,
+    "maxQuality": 29591,
+    "name": {
+      "cn": "罗刹武士袈裟",
+      "de": "Rakshasa-Kasaya der Verteidigung",
+      "en": "Rakshasa Kasaya of Fending",
+      "fr": "Kasaya rakshasa de protecteur",
+      "ja": "羅刹袈裟【武士】",
+      "ko": "Rakshasa Kasaya of Fending"
+    },
+    "stars": 4
+  },
+  {
+    "baseLevel": 70,
+    "difficulty": 3728,
+    "durability": 70,
+    "id": "5ff30df95ae",
+    "level": 390,
+    "maxQuality": 29591,
+    "name": {
+      "cn": "罗刹枪士袈裟",
+      "de": "Rakshasa-Kasaya des Verstümmelns",
+      "en": "Rakshasa Kasaya of Maiming",
+      "fr": "Kasaya rakshasa d'abatteur",
+      "ja": "羅刹袈裟【槍士】",
+      "ko": "Rakshasa Kasaya of Maiming"
+    },
+    "stars": 4
+  },
+  {
+    "baseLevel": 70,
+    "difficulty": 3728,
+    "durability": 70,
+    "id": "ef70fff6eee",
+    "level": 390,
+    "maxQuality": 29591,
+    "name": {
+      "cn": "罗刹术士筒袴",
+      "de": "Rakshasa-Tsutsu-Hakama der Magie",
+      "en": "Rakshasa Tsutsu-hakama of Casting",
+      "fr": "Tsutsuhakama rakshasa d'incantateur",
+      "ja": "羅刹筒袴【術士】",
+      "ko": "Rakshasa Tsutsu-hakama of Casting"
+    },
+    "stars": 4
+  },
+  {
+    "baseLevel": 70,
+    "difficulty": 3728,
+    "durability": 70,
+    "id": "5ba46402b55",
+    "level": 390,
+    "maxQuality": 29591,
+    "name": {
+      "cn": "罗刹武士筒袴",
+      "de": "Rakshasa-Tsutsu-Hakama der Verteidigung",
+      "en": "Rakshasa Tsutsu-hakama of Fending",
+      "fr": "Tsutsuhakama rakshasa de protecteur",
+      "ja": "羅刹筒袴【武士】",
+      "ko": "Rakshasa Tsutsu-hakama of Fending"
+    },
+    "stars": 4
+  },
+  {
+    "baseLevel": 70,
+    "difficulty": 3728,
+    "durability": 70,
+    "id": "bb8922cb8e3",
+    "level": 390,
+    "maxQuality": 29591,
+    "name": {
+      "cn": "罗刹学士筒袴",
+      "de": "Rakshasa-Tsutsu-Hakama der Heilung",
+      "en": "Rakshasa Tsutsu-hakama of Healing",
+      "fr": "Tsutsuhakama rakshasa de soigneur",
+      "ja": "羅刹筒袴【学士】",
+      "ko": "Rakshasa Tsutsu-hakama of Healing"
+    },
+    "stars": 4
+  },
+  {
+    "baseLevel": 70,
+    "difficulty": 3728,
+    "durability": 70,
+    "id": "86bf6e509fb",
+    "level": 390,
+    "maxQuality": 29591,
+    "name": {
+      "cn": "罗刹枪士筒袴",
+      "de": "Rakshasa-Tsutsu-Hakama des Verstümmelns",
+      "en": "Rakshasa Tsutsu-hakama of Maiming",
+      "fr": "Tsutsuhakama rakshasa d'abatteur",
+      "ja": "羅刹筒袴【槍士】",
+      "ko": "Rakshasa Tsutsu-hakama of Maiming"
+    },
+    "stars": 4
+  },
+  {
+    "baseLevel": 70,
+    "difficulty": 7457,
+    "durability": 70,
+    "id": "37e333938f8",
+    "level": 390,
+    "maxQuality": 10568,
+    "name": {
+      "cn": "血色孔雀（Scarlet Peacock）",
+      "de": "Feuerpfau",
+      "en": "Scarlet Peacock",
+      "fr": "Paonne vermillon",
+      "ja": "朱孔雀",
+      "ko": "Scarlet Peacock"
+    },
+    "stars": 4
+  },
+  {
+    "baseLevel": 70,
+    "difficulty": 2485,
+    "durability": 35,
+    "id": "55c1781dbe1",
+    "level": 390,
+    "maxQuality": 21137,
+    "name": {
+      "cn": "星尘棉布（Stardust Cotton Cloth）",
+      "de": "Sternenstaub-Baumwollstoff",
+      "en": "Stardust Cotton Cloth",
+      "fr": "Étoffe de coton poussière de comète",
+      "ja": "コメットコットン",
+      "ko": "Stardust Cotton Cloth"
+    },
+    "stars": 4
   }
 ]

@@ -29,7 +29,7 @@
         .then(function (zip) {
           var settingsJsonFile = zip.file('settings.json');
           if (!settingsJsonFile) {
-            throw new Error('settings.json not found');
+            throw new Error('没有找到“settings.json”文件！');
           }
           settingsJsonFile.async('text')
             .then(function (text) {
@@ -38,32 +38,32 @@
                   importSettings(text);
                 }
                 catch (err) {
-                  $window.alert('Invalid zip file provided.\n\n' + err.message);
+                  $window.alert('上传的压缩包有错误，请检查！\n\n' + err.message);
                 }
               });
             })
             .catch(function (err) {
-              $window.alert('Invalid zip file provided.\n\n' + err.message);
+              $window.alert('上传的压缩包有错误，请检查！\n\n' + err.message);
             });
         })
         .catch(function (err) {
-          $window.alert('Invalid zip file provided.\n\n' + err.message);
+          $window.alert('上传的压缩包有错误，请检查！\n\n' + err.message);
         });
     }
 
     function importSettings(text) {
       var data;
       data = JSON.parse(text);
-      if (!$window.confirm('Are you sure you want to import this settings file? All your existing settings will be overwritten.')) {
+      if (!$window.confirm('您确定要导入此设置文件吗？所有的现有设置都将被覆盖。')) {
         return;
       }
-      console.log('Importing settings into local storage:', data);
+      console.log('将设置导入本地存储：', data);
       for (var key in data) {
         if (data.hasOwnProperty(key)) {
           localStorage[key] = data[key];
         }
       }
-      $window.alert('Settings have been imported. Application will now be reloaded.');
+      $window.alert('设置已经成功导入，页面将重新加载以应用最新的设置。');
       $window.location.reload();
     }
 

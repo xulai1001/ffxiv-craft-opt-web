@@ -54,7 +54,7 @@
         $scope.recipeSearch.selected = Math.min($scope.recipeSearch.selected, $scope.recipeSearch.list.length - 1);
         $scope.recipeSearch.loading = false;
       }, function (err) {
-        console.error("Failed to retrieve recipes:", err);
+        console.error("无法检索配方:", err);
         $scope.recipeSearch.list = [];
         $scope.recipeSearch.selected = -1;
         $scope.recipeSearch.loading = false;
@@ -78,7 +78,7 @@
         recipe.startQuality = 0;
         $scope.$emit('recipe.selected', recipe);
       }, function (err) {
-        console.error("Failed to load recipe:", err);
+        console.error("无法加载配方:", err);
       });
     }
 
