@@ -2017,7 +2017,7 @@ var Ing1RecipeLevelTable = {
     300: 291,   // 70_1star
     320: 292,   // 70_2star
     350: 293,   // 70_3star
-	380: 294   // 70_4star
+	390: 294   // 70_4star
 };
 
 var Ing2RecipeLevelTable = {
@@ -2066,7 +2066,7 @@ var Ing2RecipeLevelTable = {
     300: 290,   // 70_1star
     320: 291,   // 70_2star
     350: 292,   // 70_3star
-	380: 293   // 70_4star
+	390: 293   // 70_4star
 };
 
 var NymeaisWheelTable = {
