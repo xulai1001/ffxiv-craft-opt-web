@@ -1,0 +1,295 @@
+<div class="modal-header">
+  <h3>选项设置</h3>
+</div>
+
+<div class="modal-body" isolate-scrolling>
+  <form name="allOptionsForm">
+    <tabset>
+      <tab heading="模拟器" active="pageState.options.tabs.simulator.active">
+        <form name="simulatorOptionsForm">
+
+          <div class="control-group" ng-class="{error: simulatorOptionsForm.maxMontecarloRuns.$invalid}">
+            <label class="control-label">蒙特·卡洛模拟运行次数：</label>
+
+            <div class="controls">
+              <input class="input-small" type="number" name="maxMontecarloRuns"
+                     ng-model="sequenceSettings.maxMontecarloRuns" min="1" max="10000" required
+                     tooltip="在“蒙特·卡洛模拟”选项卡中用于生成输出的迭代次数。 增加这个数字会使结果更接近长期的平均结果，但会更慢。"
+                     tooltip-placement="right"/>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="controls">
+              <label class="radio"
+                     tooltip="启用“蒙特卡洛·模拟”选项，以最逼真地模拟宏的用法。"
+                     tooltip-placement="right">
+                <input type="radio" name="monteCarloMode" value="macro" ng-model="sequenceSettings.monteCarloMode" ng-change="onMonteCarloModeChange()"/>
+                宏模式
+              </label>
+              <br/>
+              <label class="radio"
+                     tooltip="允许自定义“蒙特·卡洛模拟”选项。"
+                     tooltip-placement="right">
+                <input type="radio" name="monteCarloMode" value="advanced" ng-model="sequenceSettings.monteCarloMode"/>
+                高级模式
+              </label>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="controls">
+              <label class="checkbox" ng-class="{disabled:sequenceSettings.monteCarloMode!=='advanced'}"
+                     tooltip="允许在模拟时在每个序列步骤中加入“最低品质”、“普通品质”、“高品质”或“最高品质”的品质假设，这些条件将影响该步骤所采取行动的结果，禁用此选项将假定条件始终为“普通品质”。"
+                     tooltip-placement="right">
+                <input type="checkbox" name="useConditions" ng-model="sequenceSettings.useConditions" ng-disabled="sequenceSettings.monteCarloMode!=='advanced'"/>
+                模拟品质状态
+              </label>
+              <br/>
+              <br/>
+              <label class="control-label"ng-class="{disabled:sequenceSettings.monteCarloMode!=='advanced'}">
+                有前置条件的序列处理方式：
+              </label>
+              <br/>
+              <label class="radio" ng-class="{disabled:sequenceSettings.monteCarloMode!=='advanced'}"
+                     tooltip="条件相关的动作将不起作用，并且如果不满足条件则不会使条件或BUFF计数器前进，也不会增加工序。此选项与游戏中的宏行为最为贴近。"
+                     tooltip-placement="right">
+                <input type="radio" name="conditionalActionHandling"
+                       ng-model="sequenceSettings.conditionalActionHandling"
+                       value="skipUnusable"
+                       ng-disabled="sequenceSettings.monteCarloMode!=='advanced'"/>
+                跳过不可用
+              </label>
+              <br/>
+              <label class="radio" ng-class="{disabled:sequenceSettings.monteCarloMode!=='advanced'}"
+                     tooltip="条件相关的操作将重新定位到满足该条件的第一步。此选项可能会更改宏内某些动作的次序，不推荐使用。"
+                     tooltip-placement="right">
+                <input type="radio" name="conditionalActionHandling"
+                       ng-model="sequenceSettings.conditionalActionHandling"
+                       value="reposition"
+                       ng-disabled="sequenceSettings.monteCarloMode!=='advanced'"
+                />
+                复位
+              </label>
+              <br/>
+              <label class="radio" ng-class="{disabled:sequenceSettings.monteCarloMode!=='advanced'}"
+                     tooltip="如果不满足条件，则条件相关动作将不起作用，但条件、工序和BUFF计数器仍将前进。此选项不推荐使用。"
+                     tooltip-placement="right">
+                <input type="radio" name="conditionalActionHandling"
+                       ng-model="sequenceSettings.conditionalActionHandling"
+                       value="ignoreUnusable"
+                       ng-disabled="sequenceSettings.monteCarloMode!=='advanced'"
+                />
+                忽略不可用
+              </label>
+            </div>
+          </div>
+        </form>
+      </tab>
+
+      <tab heading="求解器" active="pageState.options.tabs.solver.active">
+        <form name="solverOptionsForm">
+
+          <div class="row-fluid">
+            <div class="span6">
+              <div class="control-group" ng-class="{error: solverOptionsForm.maxTricksUses.$invalid}">
+                <label class="control-label">最大投机取巧（trade）次数</label>
+
+                <div class="controls">
+                  <input class="input-small" type="number" name="maxTricksUses"
+                         ng-model="sequenceSettings.maxTricksUses" min="0" required
+                         tooltip="投机取巧行为的最大允许数量，设置为0则默认不允许使用任何成功率未达100%，且会对后续序列造成风险的操作。（默认值是0）"
+                         tooltip-placement="right"/>
+                </div>
+              </div>
+
+              <div class="control-group" ng-class="{error: solverOptionsForm.reliabilityPercent.$invalid}">
+                <label class="control-label">可靠性（%）:</label>
+
+                <div class="controls">
+                  <input class="input-small" type="number" name="reliabilityPercent"
+                         ng-model="sequenceSettings.reliabilityPercent" min="1" max="100" required
+                         tooltip="使用未达100％成功几率的操作会降低可靠性，降低此设置将允许求解器以牺牲可靠性为代价找到可能产生更高品质的序列。（默认值为100%）"
+                         tooltip-placement="right"/>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <div class="controls">
+                  <label class="checkbox" tooltip="启用将限制求解序列的最大动作数量，一般来说，单个宏最多是15条序列。" tooltip-placement="right">
+                    <input type="checkbox" ng-model="sequenceSettings.maxLengthEnabled"/>限制序列最大长度
+                  </label>
+                </div>
+              </div>
+
+              <div class="control-group" ng-class="{error: sequenceSettings.maxLengthEnabled && solverOptionsForm.maxLength.$invalid}">
+                <label class="control-label">最大序列长度</label>
+
+                <div class="controls">
+                  <input class="input-small" type="number" name="maxLength" ng-model="sequenceSettings.maxLength"
+                         ng-disabled="!sequenceSettings.maxLengthEnabled" min="1" ng-required="sequenceSettings.maxLengthEnabled"
+                         tooltip="这里填写所限制的序列长度，单个宏是15条序列。"
+                         tooltip-placement="right"/>
+                </div>
+              </div>
+
+            </div>
+            <div class="span6">
+
+              <div class="control-group" ng-class="{error: solverOptionsForm.algorithm.$invalid}">
+                <label class="control-label">算法:</label>
+
+                <div class="controls">
+                  <select class="input-medium" name="algorithm" ng-model="solver.algorithm" required
+                          tooltip="根据求解器所用的算法进化每一代，“简单算法”每一代都会修改整个序列元素，“复杂算法”将进化一半的序列元素，同时保留一些未经修改的最佳序列。（默认值是eaSimple）"
+                          tooltip-placement="left">
+                    <option>eaSimple</option>
+                    <option>eaComplex</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="control-group" ng-class="{error: solverOptionsForm.population.$invalid}">
+                <label class="control-label">每一模拟世代的序列数量:</label>
+
+                <div class="controls">
+                  <input class="input-small" type="number" name="population" ng-model="solver.population" min="1" required
+                         tooltip="这里设置每一代的序列数量。增加这个数字会增加每一代的变异量，提高找到更好序列的机会，但会增加完成求解器运行所需的时间。（默认值是300）"
+                         tooltip-placement="left"/>
+                </div>
+              </div>
+
+              <div class="control-group" ng-class="{error: solverOptionsForm.generations.$invalid}">
+                <label class="control-label">模拟世代生成总数:</label>
+
+                <div class="controls">
+                  <input class="input-small" type="number" name="generations" ng-model="solver.generations" min="1" required
+                         tooltip="这里设置在求解器中演变的世代的数量。增加这个数字可能会提高找到更好序列的机会，但会增加完成求解器运行所需的时间。（默认值是100）"
+                         tooltip-placement="left"/>
+                </div>
+              </div>
+
+              <div class="control-group" ng-class="{error: solverOptionsForm.penaltyWeight.$invalid}">
+                <label class="control-label">惩罚强度:</label>
+
+                <div class="controls">
+                  <input class="input-small" type="number" name="penaltyWeight" ng-model="solver.penaltyWeight" min="1" required
+                         tooltip="惩罚适用于：浪费的行为、不完整的序列、不可靠的序列、太多的投机取巧行为（使用未达100%成功率且可能影响后续序列的操作）和太多的跨级别行为。降低这个数字可能会导致求解器忽略这些约束以追求更高的品质。（默认值是10000）"
+                         tooltip-placement="left"/>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+        </form>
+      </tab>
+
+      <tab heading="宏生成" active="pageState.options.tabs.macro.active">
+        <form name="macroOptionsForm">
+
+          <div class="row-fluid">
+            <div class="span6">
+              <div class="control-group">
+                <label for="macros.waitTime" class="control-label">操作延时</label>
+
+                <div class="controls">
+                  <input id="macros.waitTime" class="input-mini" type="number" ng-model="macroOptions.waitTime" min="1" required
+                         tooltip="设置每一个非增益类操作之后的延时，延时太短可能会导致序列混乱，如果游戏网络延迟较高，可以适当增大这个数字。（默认为3）" tooltip-placement="right"/>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label for="macros.buffWaitTime" class="control-label">增益类操作延时</label>
+
+                <div class="controls">
+                  <input id="macros.buffWaitTime" class="input-mini" type="number" ng-model="macroOptions.buffWaitTime" min="1" required
+                         tooltip="设置每一个非增益类操作之后的延时，延时太短可能会导致序列混乱。如果游戏网络延迟较高，可以适当增大这个数字。（默认为2）" tooltip-placement="right"/>
+                </div>
+              </div>
+            </div>
+
+            <div class="span6">
+              <div class="control-group">
+                <label for="macros.stepSoundEffect" class="control-label">步骤宏执行完毕提示音</label>
+
+                <div class="controls">
+                  <input id="macros.stepSoundEffect" class="input-mini" type="number"
+                         ng-model="macroOptions.stepSoundEffect"
+                         min="1" max="16" required
+                         tooltip="这里将会在每一个宏的最后自动生成提示音语句（除了最后结束的一个宏之外），用于提示玩家该宏已经执行完毕。（范围：1-16；默认：1）" tooltip-placement="left"/>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label for="macros.finishSoundEffect" class="control-label">末尾宏执行完毕的提示音</label>
+
+                <div class="controls">
+                  <input id="macros.finishSoundEffect" class="input-mini" type="number"
+                         ng-model="macroOptions.finishSoundEffect"
+                         min="1" max="16" required
+                         tooltip="这里将会在最后一个宏执行完毕后自动生成提示音语句，用于提示玩家最后宏已经执行完毕。（范围：1-16；默认：16）" tooltip-placement="left"/>
+                </div>
+              </div>
+            </div>
+
+            <div class="row-fluid">
+              <div class="span12">
+                <div class="control-group">
+                  <div class="controls">
+                    <label class="checkbox" tooltip="是否生成一个单独的宏来激活必要的“共通技能”。" tooltip-placement="top">
+                      <input type="checkbox" name="setupCrossClassActions" ng-model="macroOptions.setupCrossClassActions"/>
+                      生成“共通技能激活宏”
+                    </label>
+                    <br/>
+                    <label class="checkbox" ng-class="{disabled:!macroOptions.setupCrossClassActions}" tooltip="是否将当前职业的“共通技能”包含在上述“共通技能激活宏”中。" tooltip-placement="top">
+                      <input type="checkbox" name="includeCurrentClassActions" ng-model="macroOptions.includeCurrentClassActions" ng-disabled="!macroOptions.setupCrossClassActions"/>
+                      生成“共通技能激活宏”时包括当前职业的“共通技能”
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </tab>
+
+      <tab heading="Debugging" active="pageState.options.tabs.debugging.active">
+        <form name="generalOptionsForm">
+
+          <div class="control-group">
+            <div class="controls">
+              <label class="checkbox" tooltip="启用以覆盖用于蒙特卡洛模拟的随机种子。" tooltip-placement="right">
+                <input type="checkbox" ng-model="sequenceSettings.specifySeed"/>指定种子
+              </label>
+            </div>
+          </div>
+
+          <div class="control-group"
+               ng-class="{error: sequenceSettings.specifySeed && generalOptionsForm.seed.$invalid}">
+            <div class="controls">
+              <input class="input-small" type="number" name="seed" ng-model="sequenceSettings.seed"
+                     ng-disabled="!sequenceSettings.specifySeed" min="0" ng-required="sequenceSettings.specifySeed"
+                     tooltip="将其设置为特定值以在蒙特卡洛模拟中重现完全相同的条件。" tooltip-placement="right"/>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <div class="controls">
+              <label class="checkbox" tooltip="在模拟器和求解器日志中启用额外的信息。" tooltip-placement="right">
+                <input type="checkbox" name="debug" ng-model="sequenceSettings.debug"/>Debug
+              </label>
+            </div>
+          </div>
+
+        </form>
+      </tab>
+    </tabset>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button class="btn btn-primary" ng-click="save()" ng-disabled="allOptionsForm.$pristine || allOptionsForm.$invalid">保存</button>
+  <button class="btn" ng-click="cancel()">取消</button>
+</div>

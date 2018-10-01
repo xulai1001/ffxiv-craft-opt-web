@@ -7,18 +7,18 @@
   <meta name="keywords" content="生产模拟器,最终幻想XIV,最终幻想14,FF14,FFXIV,FF14生产职业,FF14模拟器">
   <title>《最终幻想14》生产模拟器</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"/>
-  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css">
-  <link rel="stylesheet" href="https://cdn.bootcss.com/angular-busy/4.1.0/angular-busy.min.css"/>
+  <link rel="stylesheet" href="css/bootstrap-combined.min.css"/>
+  <link rel="stylesheet" href="css/font-awesome.css">
+  <link rel="stylesheet" href="css/angular-busy.min.css"/>
   <link rel="stylesheet" href="css/base.css"/>
   <link rel="stylesheet" href="css/app.css"/>
   <link rel="stylesheet" href="css/tooltips.css"/>
   <link rel="icon" href="data:image/ico;base64,aWNv">
   <script src="js/angular.js"></script>
-  <script src="https://cdn.bootcss.com/angular-ui-router/1.0.0-rc.1/angular-ui-router.js"></script>
-  <script src="https://cdn.bootcss.com/angular-busy/4.1.0/angular-busy.min.js"></script>
-  <script src="https://cdn.bootcss.com/angular-translate/2.6.1/angular-translate.min.js"></script>
-  <script src="https://cdn.bootcss.com/angular-translate/2.6.1/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+  <script src="js/angular-ui-router.js"></script>
+  <script src="js/angular-busy.min.js"></script>
+  <script src="js/angular-translate.min.js"></script>
+  <script src="js/angular-translate-loader-static-files.min.js"></script>
 </head>
 
 <body ng-controller="MainController" ng-cloak>
@@ -35,29 +35,29 @@
         <a class="brand" href="index.html">《最终幻想XIV》生产模拟器</a>
         <div class="nav-collapse" collapse="pageState.navBarCollapsed">
           <ul class="nav">
-            <li ui-sref-active="active"><a ui-sref="simulator">模拟器</a></li>
-            <li ui-sref-active="active"><a ui-sref="solver">求解器</a></li>
-            <li ui-sref-active="active"><a ui-sref="crafter-attributes">工匠属性</a></li>
+            <li ui-sref-active="active"><a ui-sref="simulator">{{ 'NAV_SIMULATOR' | translate }}</a></li>
+            <li ui-sref-active="active"><a ui-sref="solver">{{ 'NAV_SOLVER' | translate}}</a></li>
+            <li ui-sref-active="active"><a ui-sref="crafter-attributes">{{ 'NAV_CRAFTER_ATTRIBUTES' | translate }}</a></li>
           </ul>
           <ul class="nav pull-right">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle">更多...</a>
+              <a href="#" class="dropdown-toggle">{{ 'MORE' | translate}}</a>
               <ul class="dropdown-menu">
-                <li><a ng-click="showSettingsImportModal()">导入/导出设置...</a></li>
-                <li ui-sref-active="active"><a ui-sref="about">关于</a></li>
-                <!--<li ui-sref-active="active"><a ui-sref="instructions">使用说明</a></li>-->
-                <!--<li><a href="blog">Blog</a></li>-->
+                <li><a ng-click="showSettingsImportModal()">{{ 'SETTINGS_MANAGEMENT' | translate }}</a></li>
+                <li ui-sref-active="active"><a ui-sref="about">{{ 'ABOUT' | translate}}</a></li>
+                <li ui-sref-active="active"><a ui-sref="instructions">{{ 'INSTRUCTIONS' | translate }}</a></li>
+                <li><a href="blog">Blog</a></li>
               </ul>
             </li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle">语言： {{languages[currentLang()]}}</a>
+              <a href="#" class="dropdown-toggle">{{ 'LANGUAGE' | translate }} : {{languages[currentLang()]}}</a>
               <ul class="dropdown-menu">
                 <li ng-repeat="(langCode, langName) in languages"><a ng-click="changeLang(langCode)">{{langName}}</a></li>
               </ul>
             </li>
             <li><a ng-click="showOptionsModal()">
               <i ng-if="pageState.navBarCollapsed" class="fa fa-cog fa-lg"></i>
-              <span ng-if="!pageState.navBarCollapsed">设置...</span>
+              <span ng-if="!pageState.navBarCollapsed">{{ 'OPTIONS' | translate}}</span>
             </a></li>
           </ul>
         </div>
@@ -68,7 +68,7 @@
   <div class="container-fluid">
     <div class="row-fluid">
       <noscript>
-        <h1>This site requires Javascript to function.</h1>
+        <h1>{{ 'NO_SCRIPT' | translate}}</h1>
       </noscript>
       <ng-form name="allForms">
         <div ui-view></div>
@@ -78,19 +78,19 @@
 
   <footer>
     <div class="container-fluid">
-      <p class="muted">Copyright &copy; 2014 - 2017 by Rhoda Baker and Gordon Tyler. Simplified Chinese version translated by 瑤瑤瑤影@神意之地. Sourcecode on <a href="http://github.com/doxxx/ffxiv-craft-opt-web">Github</a>. {{version}}</p>
-      <p class="muted">FINAL FANTASY XIV &copy;2010 - 2017 SQUARE ENIX CO., LTD. FINAL FANTASY is a registered trademark of Square Enix Holdings Co., Ltd. All material used under license.</p>
+      <p class="muted">Copyright &copy; 2014 - 2018 by Rhoda Baker and Gordon Tyler. Simplified Chinese version translated by 瑤瑤瑤影@神意之地. Sourcecode on <a href="http://github.com/doxxx/ffxiv-craft-opt-web">Github</a>. {{version}}</p>
+      <p class="muted">FINAL FANTASY XIV &copy;2010 - 2018 SQUARE ENIX CO., LTD. FINAL FANTASY is a registered trademark of Square Enix Holdings Co., Ltd. All material used under license.</p>
 	  <p class="muted">感谢 黑魔导师库兰@魔杜纳 提供的服务器空间，如对页面有反馈可以给我发送邮件：conan08#vip.qq.com（请把#替换成@）</p>
     </div>
   </footer>
 </div>
 
-<script src="https://cdn.bootcss.com/angular-ui-bootstrap/0.8.0/ui-bootstrap-tpls.min.js"></script>
+<script src="js/ui-bootstrap-tpls.min.js"></script>
 <script src="lib/lvl-drag-drop/lvl-uuid.js"></script>
 <script src="lib/lvl-drag-drop/lvl-drag-drop.js"></script>
 <script src="lib/string/String.js"></script>
-<script src="https://cdn.bootcss.com/jszip/3.1.3/jszip.min.js"></script>
-<script src="https://cdn.bootcss.com/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+<script src="js/jszip.min.js"></script>
+<script src="js/FileSaver.min.js"></script>
 <script src="js/polyfills.js"></script>
 <script src="js/app.js"></script>
 <script src="js/routes.js"></script>
