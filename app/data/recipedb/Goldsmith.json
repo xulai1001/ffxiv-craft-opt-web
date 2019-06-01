@@ -3121,6 +3121,22 @@
   },
   {
     "baseLevel": 30,
+    "difficulty": 183,
+    "durability": 70,
+    "id": "9ca8daea61b",
+    "level": 30,
+    "maxQuality": 792,
+    "name": {
+      "cn": "白色矩形隔离墙（White Rectangular Partition）",
+      "de": "Weißer Raumtrenner",
+      "en": "White Rectangular Partition",
+      "fr": "Partition extra-blanche",
+      "ja": "ピュアホワイトパーティション",
+      "ko": "White Rectangular Partition"
+    }
+  },
+  {
+    "baseLevel": 30,
     "difficulty": 51,
     "durability": 70,
     "id": "ab99c6ecc90",
@@ -10000,7 +10016,7 @@
     "baseLevel": 50,
     "difficulty": 586,
     "durability": 80,
-    "id": "ed3d05ee8f5",
+    "id": "643fd43d54a",
     "level": 110,
     "maxQuality": 5783,
     "name": {
@@ -10017,7 +10033,7 @@
     "baseLevel": 50,
     "difficulty": 586,
     "durability": 80,
-    "id": "643fd43d54a",
+    "id": "ed3d05ee8f5",
     "level": 110,
     "maxQuality": 5783,
     "name": {
@@ -11468,6 +11484,22 @@
   },
   {
     "baseLevel": 55,
+    "difficulty": 1254,
+    "durability": 70,
+    "id": "24165e7190e",
+    "level": 136,
+    "maxQuality": 3150,
+    "name": {
+      "cn": "球藻台灯（Marimo Lamp）",
+      "de": "Algenkugellampe",
+      "en": "Marimo Lamp",
+      "fr": "Lampe marimo lanterne",
+      "ja": "ランプマリモランタン",
+      "ko": "Marimo Lamp"
+    }
+  },
+  {
+    "baseLevel": 55,
     "difficulty": 348,
     "durability": 35,
     "id": "ba3362f908c",
@@ -11800,6 +11832,22 @@
       "fr": "Cornaline",
       "ja": "カーネリアン",
       "ko": "홍옥수"
+    }
+  },
+  {
+    "baseLevel": 57,
+    "difficulty": 1454,
+    "durability": 70,
+    "id": "b62beb3d962",
+    "level": 142,
+    "maxQuality": 3410,
+    "name": {
+      "cn": "猫小胖存钱罐（Fat Cat Bank）",
+      "de": "Fette Goldkatze",
+      "en": "Fat Cat Bank",
+      "fr": "Tirelire gros minou",
+      "ja": "ファットキャット・コインバンク",
+      "ko": "Fat Cat Bank"
     }
   },
   {
@@ -14237,6 +14285,23 @@
   },
   {
     "baseLevel": 60,
+    "difficulty": 1651,
+    "durability": 70,
+    "id": "6a15f845529",
+    "level": 210,
+    "maxQuality": 10373,
+    "name": {
+      "cn": "女神之幻杖（Cane of the Goddess）",
+      "de": "Stock der Göttin",
+      "en": "Cane of the Goddess",
+      "fr": "Canne de la Déesse",
+      "ja": "ケーン・オブ・ゴッデス",
+      "ko": "Cane of the Goddess"
+    },
+    "stars": 3
+  },
+  {
+    "baseLevel": 60,
     "difficulty": 2971,
     "durability": 70,
     "id": "fcdca26dab5",
@@ -14477,6 +14542,23 @@
     "baseLevel": 60,
     "difficulty": 1651,
     "durability": 70,
+    "id": "330566e2542",
+    "level": 210,
+    "maxQuality": 10373,
+    "name": {
+      "cn": "女神之咒杖（Pole of the Goddess）",
+      "de": "Stab der Göttin",
+      "en": "Pole of the Goddess",
+      "fr": "Bâton de la Déesse",
+      "ja": "ポール・オブ・ゴッデス",
+      "ko": "Pole of the Goddess"
+    },
+    "stars": 3
+  },
+  {
+    "baseLevel": 60,
+    "difficulty": 1651,
+    "durability": 70,
     "id": "7341acd3b6b",
     "level": 210,
     "maxQuality": 10373,
@@ -14487,6 +14569,23 @@
       "fr": "Rapière du Fiélon",
       "ja": "レイピア・オブ・フィーンド",
       "ko": "마신의 레이피어"
+    },
+    "stars": 3
+  },
+  {
+    "baseLevel": 60,
+    "difficulty": 1651,
+    "durability": 70,
+    "id": "617989ac5dc",
+    "level": 210,
+    "maxQuality": 10373,
+    "name": {
+      "cn": "女神之刺剑（Rapier of the Goddess）",
+      "de": "Rapier der Göttin",
+      "en": "Rapier of the Goddess",
+      "fr": "Rapière de la Déesse",
+      "ja": "レイピア・オブ・ゴッデス",
+      "ko": "Rapier of the Goddess"
     },
     "stars": 3
   },
@@ -14651,7 +14750,7 @@
     "level": 210,
     "maxQuality": 10373,
     "name": {
-      "cn": "尼德霍格牧杖（Seeing Horde Cane）",
+      "cn": "邪龙怨影牧杖",
       "de": "Nidhogg-Stock",
       "en": "Seeing Horde Cane",
       "fr": "Canne de Dravanien",
@@ -14668,7 +14767,7 @@
     "level": 210,
     "maxQuality": 10373,
     "name": {
-      "cn": "尼德霍格手炮（Seeing Horde Handgonne）",
+      "cn": "邪龙怨影手炮",
       "de": "Nidhogg-Donnerbüchse",
       "en": "Seeing Horde Handgonne",
       "fr": "Haquebute de Dravanien",
@@ -14685,7 +14784,7 @@
     "level": 210,
     "maxQuality": 10373,
     "name": {
-      "cn": "尼德霍格刺剑（Seeing Horde Rapier）",
+      "cn": "邪龙怨影刺剑",
       "de": "Nidhogg-Rapier",
       "en": "Seeing Horde Rapier",
       "fr": "Rapière de Dravanien",
@@ -14702,7 +14801,7 @@
     "level": 210,
     "maxQuality": 10373,
     "name": {
-      "cn": "尼德霍格魔杖（Seeing Horde Rod）",
+      "cn": "邪龙怨影魔杖",
       "de": "Nidhogg-Stab",
       "en": "Seeing Horde Rod",
       "fr": "Sceptre de Dravanien",
@@ -14719,7 +14818,7 @@
     "level": 210,
     "maxQuality": 10373,
     "name": {
-      "cn": "尼德霍格天球仪（Seeing Horde Star Globe）",
+      "cn": "邪龙怨影天球仪",
       "de": "Nidhogg-Sternenglobus",
       "en": "Seeing Horde Star Globe",
       "fr": "Globe céleste de Dravanien",
@@ -14776,6 +14875,23 @@
       "fr": "Étoile du Fiélon",
       "ja": "スター・オブ・フィーンド",
       "ko": "마신의 천구의"
+    },
+    "stars": 3
+  },
+  {
+    "baseLevel": 60,
+    "difficulty": 1651,
+    "durability": 70,
+    "id": "76c2def88d2",
+    "level": 210,
+    "maxQuality": 10373,
+    "name": {
+      "cn": "女神之仪（Star of the Goddess）",
+      "de": "Stern der Göttin",
+      "en": "Star of the Goddess",
+      "fr": "Étoile de la Déesse",
+      "ja": "スター・オブ・ゴッデス",
+      "ko": "Star of the Goddess"
     },
     "stars": 3
   },
@@ -17211,6 +17327,22 @@
   {
     "baseLevel": 66,
     "difficulty": 2411,
+    "durability": 60,
+    "id": "65fa3316f9f",
+    "level": 279,
+    "maxQuality": 9340,
+    "name": {
+      "cn": "果汁发酵用品（Fermented Juice）",
+      "de": "Spirituosenzubehörteil",
+      "en": "Fermented Juice",
+      "fr": "Composant pour eau-de-vie du Bord du gouffre",
+      "ja": "崖っぷち蒸留酒必需品",
+      "ko": "Fermented Juice"
+    }
+  },
+  {
+    "baseLevel": 66,
+    "difficulty": 2411,
     "durability": 80,
     "id": "75dd160d8d8",
     "level": 279,
@@ -17238,6 +17370,54 @@
       "fr": "Cheminée hingashienne (kura-zukuri)",
       "ja": "白銀蔵造煙突",
       "ko": "동방의 회벽 굴뚝"
+    }
+  },
+  {
+    "baseLevel": 66,
+    "difficulty": 2411,
+    "durability": 60,
+    "id": "21ec914a287",
+    "level": 279,
+    "maxQuality": 9340,
+    "name": {
+      "cn": "伊修加德料理必需品（Ishgardian Culinary Essentials）",
+      "de": "Ishgarder Kochutensil",
+      "en": "Ishgardian Culinary Essentials",
+      "fr": "Composant pour recette ishgardaise",
+      "ja": "イシュガルド料理必需品",
+      "ko": "Ishgardian Culinary Essentials"
+    }
+  },
+  {
+    "baseLevel": 66,
+    "difficulty": 1205,
+    "durability": 60,
+    "id": "6d8a2ad341f",
+    "level": 279,
+    "maxQuality": 4670,
+    "name": {
+      "cn": "伊修加德料理必需品部件（Ishgardian Culinary Materials）",
+      "de": "Ishgarder Kochutensil-Komponente",
+      "en": "Ishgardian Culinary Materials",
+      "fr": "Matériaux raffinés pour composant de recette ishgardaise",
+      "ja": "イシュガルド料理必需品部材",
+      "ko": "Ishgardian Culinary Materials"
+    }
+  },
+  {
+    "baseLevel": 66,
+    "difficulty": 1205,
+    "durability": 60,
+    "id": "6a42db123f9",
+    "level": 279,
+    "maxQuality": 4670,
+    "name": {
+      "cn": "果汁发酵用品部件（Juice Fermenting Supplies）",
+      "de": "Komponente eines Spirituosenzubehörteils",
+      "en": "Juice Fermenting Supplies",
+      "fr": "Matériaux raffinés pour composant pour eau-de-vie du Bord du gouffre",
+      "ja": "崖っぷち蒸留酒必需品部材",
+      "ko": "Juice Fermenting Supplies"
     }
   },
   {
@@ -17402,6 +17582,22 @@
   },
   {
     "baseLevel": 67,
+    "difficulty": 1279,
+    "durability": 60,
+    "id": "209775f846e",
+    "level": 282,
+    "maxQuality": 4835,
+    "name": {
+      "cn": "酒馆装饰材料（Decorative Tavern Furnishing Materials）",
+      "de": "Komponente eines Klippenhänger-Einrichtungsgegenstands",
+      "en": "Decorative Tavern Furnishing Materials",
+      "fr": "Matériaux raffinés pour pièce décorative du Bord du gouffre",
+      "ja": "崖っぷち亭の備品部材",
+      "ko": "Decorative Tavern Furnishing Materials"
+    }
+  },
+  {
+    "baseLevel": 67,
     "difficulty": 2559,
     "durability": 80,
     "id": "13c0055cf9e",
@@ -17446,6 +17642,86 @@
       "fr": "Sceptre en durium",
       "ja": "ダリウムロッド",
       "ko": "취은 지팡이"
+    }
+  },
+  {
+    "baseLevel": 67,
+    "difficulty": 2559,
+    "durability": 60,
+    "id": "fd322c5803f",
+    "level": 282,
+    "maxQuality": 9670,
+    "name": {
+      "cn": "悬崖边缘装饰材料（Hard Place Decorative Furnishings）",
+      "de": "Klippenhänger-Einrichtungsgegenstand",
+      "en": "Hard Place Decorative Furnishings",
+      "fr": "Pièce décorative du Bord du gouffre",
+      "ja": "崖っぷち亭の備品",
+      "ko": "Hard Place Decorative Furnishings"
+    }
+  },
+  {
+    "baseLevel": 67,
+    "difficulty": 2559,
+    "durability": 60,
+    "id": "5a966fdc814",
+    "level": 282,
+    "maxQuality": 9670,
+    "name": {
+      "cn": "改良蒸包子用品（Signature Buuz Cookware）",
+      "de": "Buuds-Kochutensil",
+      "en": "Signature Buuz Cookware",
+      "fr": "Composant pour buuz du Bord du gouffre",
+      "ja": "崖っぷちボーズ必需品",
+      "ko": "Signature Buuz Cookware"
+    }
+  },
+  {
+    "baseLevel": 67,
+    "difficulty": 1279,
+    "durability": 60,
+    "id": "d47e24e4fd2",
+    "level": 282,
+    "maxQuality": 4835,
+    "name": {
+      "cn": "改良蒸包子用品材料（Signature Buuz Cookware  Materials）",
+      "de": "Komponente eines Buuds-Kochutensils",
+      "en": "Signature Buuz Cookware Materials",
+      "fr": "Matériaux raffinés pour composant pour buuz du Bord du gouffre",
+      "ja": "崖っぷちボーズ必需品部材",
+      "ko": "Signature Buuz Cookware Materials"
+    }
+  },
+  {
+    "baseLevel": 68,
+    "difficulty": 2706,
+    "durability": 60,
+    "id": "b9eef06753b",
+    "level": 285,
+    "maxQuality": 10000,
+    "name": {
+      "cn": "亚德·基拉的酿造必需品（Arkhi Brewing Set）",
+      "de": "Arkhi-Destillierutensil",
+      "en": "Arkhi Brewing Set",
+      "fr": "Composant pour arkhi du Bord du gouffre",
+      "ja": "アルヒ醸造必需品",
+      "ko": "Arkhi Brewing Set"
+    }
+  },
+  {
+    "baseLevel": 68,
+    "difficulty": 1353,
+    "durability": 60,
+    "id": "96dde576b6b",
+    "level": 285,
+    "maxQuality": 5000,
+    "name": {
+      "cn": "亚德·基拉的酿造必需品材料（Arkhi Brewing Vat Materials）",
+      "de": "Komponente eines Arkhi-Destillierutensils",
+      "en": "Arkhi Brewing Vat Materials",
+      "fr": "Matériaux raffinés pour composant pour arkhi du Bord du gouffre",
+      "ja": "アルヒ醸造必需品部材",
+      "ko": "Arkhi Brewing Vat Materials"
     }
   },
   {
@@ -18353,6 +18629,23 @@
     "baseLevel": 70,
     "difficulty": 6377,
     "durability": 70,
+    "id": "0d5774a5777",
+    "level": 320,
+    "maxQuality": 7918,
+    "name": {
+      "cn": "宝石兽吊灯（Carbuncle Chandelier）",
+      "de": "Karfunkel-Kronleuchter",
+      "en": "Carbuncle Chandelier",
+      "fr": "Lustre carbuncles",
+      "ja": "カーバンクルシャンデリア",
+      "ko": "Carbuncle Chandelier"
+    },
+    "stars": 2
+  },
+  {
+    "baseLevel": 70,
+    "difficulty": 6377,
+    "durability": 70,
     "id": "f8c7e725a3e",
     "level": 320,
     "maxQuality": 7918,
@@ -18410,10 +18703,10 @@
     "name": {
       "cn": "般若面具",
       "de": "Hannya-Maske",
-      "en": "Hannya Mask",
+      "en": "Hanya Mask",
       "fr": "Masque de hannya",
       "ja": "般若の面",
-      "ko": "Hannya Mask"
+      "ko": "Hanya Mask"
     },
     "stars": 2
   },
@@ -18459,7 +18752,7 @@
     "level": 320,
     "maxQuality": 7918,
     "name": {
-      "cn": "獭獭置行灯（Odder Otter Andon Lamp）",
+      "cn": "獭獭行灯",
       "de": "Andon-Laterne „Obskurer Otter“",
       "en": "Odder Otter Andon Lamp",
       "fr": "Andon loutre choute",
@@ -18476,7 +18769,7 @@
     "level": 320,
     "maxQuality": 7918,
     "name": {
-      "cn": "獭獭吊顶行灯（Odder Otter Hanging Andon Lamp）",
+      "cn": "獭獭吊顶行灯",
       "de": "Hängende Andon-Laterne „Obskurer Otter“",
       "en": "Odder Otter Hanging Andon Lamp",
       "fr": "Lampe suspendue loutre choute",
@@ -18510,7 +18803,7 @@
     "level": 320,
     "maxQuality": 7918,
     "name": {
-      "cn": "獭獭壁灯（Odder Otter Wall Lantern）",
+      "cn": "獭獭壁灯",
       "de": "Wandlaterne „Obskurer Otter“",
       "en": "Odder Otter Wall Lantern",
       "fr": "Lanterne murale loutre choute",
@@ -18805,6 +19098,23 @@
       "fr": "Bâton en palladium",
       "ja": "パラーススタッフ",
       "ko": "팔라듐 주술봉"
+    },
+    "stars": 2
+  },
+  {
+    "baseLevel": 70,
+    "difficulty": 6377,
+    "durability": 70,
+    "id": "860600dbc78",
+    "level": 320,
+    "maxQuality": 7918,
+    "name": {
+      "cn": "洗脸盆（Washbasin）",
+      "de": "Waschbecken",
+      "en": "Washbasin",
+      "fr": "Vasque sur pied",
+      "ja": "ウォッシュスタンド",
+      "ko": "Washbasin"
     },
     "stars": 2
   },
@@ -19136,10 +19446,10 @@
     "difficulty": 2485,
     "durability": 35,
     "id": "7a51efcd3f0",
-    "level": 390,
+    "level": 380,
     "maxQuality": 21137,
     "name": {
-      "cn": "常青锭（Evergleam Ingot）",
+      "cn": "常辉钢锭",
       "de": "Immerschimmer-Barren",
       "en": "Evergleam Ingot",
       "fr": "Lingot de pérennéclat",
@@ -19153,7 +19463,7 @@
     "difficulty": 3728,
     "durability": 70,
     "id": "1f779d75a41",
-    "level": 390,
+    "level": 380,
     "maxQuality": 29591,
     "name": {
       "cn": "罗刹弓士耳饰",
@@ -19170,7 +19480,7 @@
     "difficulty": 3728,
     "durability": 70,
     "id": "da62a3b3023",
-    "level": 390,
+    "level": 380,
     "maxQuality": 29591,
     "name": {
       "cn": "罗刹术士耳饰",
@@ -19187,7 +19497,7 @@
     "difficulty": 3728,
     "durability": 70,
     "id": "28353e7a2c0",
-    "level": 390,
+    "level": 380,
     "maxQuality": 29591,
     "name": {
       "cn": "罗刹武士耳饰",
@@ -19204,7 +19514,7 @@
     "difficulty": 3728,
     "durability": 70,
     "id": "79a2fd65f79",
-    "level": 390,
+    "level": 380,
     "maxQuality": 29591,
     "name": {
       "cn": "罗刹学士耳饰",
@@ -19221,10 +19531,10 @@
     "difficulty": 3728,
     "durability": 70,
     "id": "9b6cd678e14",
-    "level": 390,
+    "level": 380,
     "maxQuality": 29591,
     "name": {
-      "cn": "罗刹间士耳饰",
+      "cn": "罗刹斗士耳饰",
       "de": "Rakshasa-Ohrring des Schlachtens",
       "en": "Rakshasa Earring of Slaying",
       "fr": "Boucle d'oreille rakshasa d'abatteur",
@@ -19238,10 +19548,10 @@
     "difficulty": 3728,
     "durability": 70,
     "id": "2f7da5a829d",
-    "level": 390,
+    "level": 380,
     "maxQuality": 29591,
     "name": {
-      "cn": "罗刹干支",
+      "cn": "罗刹天仪",
       "de": "Rakshasa-Astrometer",
       "en": "Rakshasa Ephemeris",
       "fr": "Éphéméridosphère rakshasa",
@@ -19255,7 +19565,7 @@
     "difficulty": 3728,
     "durability": 70,
     "id": "f1fec0f31da",
-    "level": 390,
+    "level": 380,
     "maxQuality": 29591,
     "name": {
       "cn": "罗刹弓士眼带",
@@ -19272,7 +19582,7 @@
     "difficulty": 3728,
     "durability": 70,
     "id": "d200aac5e0d",
-    "level": 390,
+    "level": 380,
     "maxQuality": 29591,
     "name": {
       "cn": "罗刹间士眼带",
@@ -19289,7 +19599,7 @@
     "difficulty": 3728,
     "durability": 70,
     "id": "53df313c3f3",
-    "level": 390,
+    "level": 380,
     "maxQuality": 29591,
     "name": {
       "cn": "罗刹拳士眼带",
@@ -19306,10 +19616,10 @@
     "difficulty": 3728,
     "durability": 70,
     "id": "d916ffa5482",
-    "level": 390,
+    "level": 380,
     "maxQuality": 29591,
     "name": {
-      "cn": "罗刹术士头冠",
+      "cn": "罗刹术士冠",
       "de": "Rakshasa-Kanmuri der Magie",
       "en": "Rakshasa Kanmuri of Casting",
       "fr": "Kanmuri rakshasa d'incantateur",
@@ -19323,10 +19633,10 @@
     "difficulty": 3728,
     "durability": 70,
     "id": "430c687dd5c",
-    "level": 390,
+    "level": 380,
     "maxQuality": 29591,
     "name": {
-      "cn": "罗刹学士头冠",
+      "cn": "罗刹学士冠",
       "de": "Rakshasa-Kanmuri der Heilung",
       "en": "Rakshasa Kanmuri of Healing",
       "fr": "Kanmuri rakshasa de soigneur",
@@ -19340,7 +19650,7 @@
     "difficulty": 3728,
     "durability": 70,
     "id": "abe70506560",
-    "level": 390,
+    "level": 380,
     "maxQuality": 29591,
     "name": {
       "cn": "罗刹细剑",
@@ -19357,7 +19667,7 @@
     "difficulty": 3728,
     "durability": 70,
     "id": "5c1879976b2",
-    "level": 390,
+    "level": 380,
     "maxQuality": 29591,
     "name": {
       "cn": "罗刹弓士指饰",
@@ -19374,7 +19684,7 @@
     "difficulty": 3728,
     "durability": 70,
     "id": "478045ae801",
-    "level": 390,
+    "level": 380,
     "maxQuality": 29591,
     "name": {
       "cn": "罗刹术士指饰",
@@ -19391,7 +19701,7 @@
     "difficulty": 3728,
     "durability": 70,
     "id": "bd5145ece8e",
-    "level": 390,
+    "level": 380,
     "maxQuality": 29591,
     "name": {
       "cn": "罗刹武士指饰",
@@ -19408,7 +19718,7 @@
     "difficulty": 3728,
     "durability": 70,
     "id": "8c2feabca10",
-    "level": 390,
+    "level": 380,
     "maxQuality": 29591,
     "name": {
       "cn": "罗刹学士指饰",
@@ -19425,10 +19735,10 @@
     "difficulty": 3728,
     "durability": 70,
     "id": "0914ef9474b",
-    "level": 390,
+    "level": 380,
     "maxQuality": 29591,
     "name": {
-      "cn": "罗刹间士指饰",
+      "cn": "罗刹斗士指饰",
       "de": "Rakshasa-Ring des Schlachtens",
       "en": "Rakshasa Ring of Slaying",
       "fr": "Bague rakshasa d'abatteur",
@@ -19442,7 +19752,7 @@
     "difficulty": 3728,
     "durability": 70,
     "id": "cfcbe3e41bb",
-    "level": 390,
+    "level": 380,
     "maxQuality": 29591,
     "name": {
       "cn": "罗刹咒杖",
@@ -19451,6 +19761,23 @@
       "fr": "Bâton rakshasa",
       "ja": "羅刹呪杖",
       "ko": "Rakshasa Rod"
+    },
+    "stars": 4
+  },
+  {
+    "baseLevel": 70,
+    "difficulty": 7457,
+    "durability": 70,
+    "id": "9ccbbb315ef",
+    "level": 380,
+    "maxQuality": 10568,
+    "name": {
+      "cn": "青龙雕像（Seiryu Statuette）",
+      "de": "Seiryu-Statue",
+      "en": "Seiryu Statuette",
+      "fr": "Statuette de Seiryû",
+      "ja": "青龍の彫刻",
+      "ko": "Seiryu Statuette"
     },
     "stars": 4
   }

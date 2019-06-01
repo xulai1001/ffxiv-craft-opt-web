@@ -1,4 +1,6 @@
 {
+  "Locale_Mark": "_de",
+	
   "Advanced Touch": "Höhere Veredelung",
   "Standard Synthesis": "Solide Bearbeitung",
   "Master's Mend II": "Wiederherstellung II",
@@ -124,6 +126,7 @@
   "RELIABILITY": "Reliability",
   "ATTRIBUTES": "Attributes",
   "SPECIALIST": "Specialist",
+  "SPECIALIST_DESC": "Check this if you have the Stroke of Genius trait from the level 70 quest.",
   "FOOD": "Food",
   "FOOD_NONE": "None",
   "MEDICINE": "Medicine",
@@ -211,6 +214,8 @@
   "BUFF_WAIT_TIME_INFO": "Time to wait after each buff action.",
   "STEP_SOUND_EFFECT": "Step Sound Effect",
   "STEP_SOUND_INFO": "Sound effect to play at the end of each macro, except the last.,",
+  "STEP_SOUND_ENABLED" : "Enable Sound Effects",
+  "STEP_SOUND_ENABLED_INFO" : "Enable or disable Sound Effects",
   "FINISH_SOUND_EFFECT": "Finish Sound Effect",
   "FINISH_SOUND_INFO": "Sound effect to play at the end of the last macro.,",
   "CROSS_CLASS_INFO": "Whether to generate a separate macro that activates the necessary cross-class actions.",
@@ -251,7 +256,7 @@
   "INSTRUCTIONS_STEP_7": "Go to the ",
   "INSTRUCTIONS_STEP_8": "Select the class of the recipe you want to simulate.",
   "INSTRUCTIONS_STEP_9": "Select the recipe name from the recipe dropdown to automatically fill out the recipe information.",
-  "INSTRUCTIONS_STEP_10" : "If the recipe is not available from the dropdown, the information can be entered into the fields manually.",
+  "INSTRUCTIONS_STEP_10" : "If the recipe is not available from the dropdown, the information can be entered into the fields manually. (This feature is no longer available)",
   "INSTRUCTIONS_STEP_11" : "Go to the attributes section.",
   "INSTRUCTIONS_STEP_12" : "Enter additional information about food boosts.",
   "INSTRUCTIONS_STEP_13" : "Go to the ",
